@@ -14,8 +14,17 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+5. **Check for recent session logs**: Run `ls -t /Users/clawbot/.openclaw/agents/main/sessions/*.jsonl 2>/dev/null | head -3` and skim the most recent one for context on what was being worked on.
 
 Don't ask permission. Just do it.
+
+## Memory — Non-Negotiable Rules
+
+- **Write daily notes DURING conversations**, not just at the end. If something important is said, log it immediately.
+- Daily file: `memory/YYYY-MM-DD.md` — raw log of what happened, decisions made, research done
+- Long-term: `MEMORY.md` — distilled facts, updated same day when anything significant happens
+- Session logs at `/Users/clawbot/.openclaw/agents/main/sessions/` contain full chat history — read the most recent one at startup to catch up on recent context
+- **No "mental notes"** — if it matters, write it to a file. Period.
 
 ## Memory
 

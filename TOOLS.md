@@ -38,3 +38,9 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## Google Drive
+- Mounted path: ~/Library/CloudStorage/GoogleDrive-glenn@lead-flo.ai
+- Access via: Mac node (mike's MacBook Pro)
+- Account: glenn@lead-flo.ai
+

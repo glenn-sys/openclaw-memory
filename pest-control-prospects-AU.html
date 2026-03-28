@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU Pest Control Prospects — LeadFlow</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .header {
+      margin-bottom: 28px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .header p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    .stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 10px;
+      padding: 16px 22px;
+      min-width: 130px;
+    }
+    .stat-card .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+    .stat-card .label {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #2d3448;
+      padding-bottom: 0;
+    }
+    .tab {
+      padding: 10px 20px;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: #64748b;
+      border: 1px solid transparent;
+      border-bottom: none;
+      background: transparent;
+      transition: all 0.15s;
+    }
+    .tab:hover { color: #94a3b8; }
+    .tab.active {
+      background: #1e2330;
+      border-color: #2d3448;
+      border-bottom: 1px solid #1e2330;
+      color: #60a5fa;
+      margin-bottom: -1px;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 8px;
+      padding: 8px 14px;
+      color: #e2e8f0;
+      font-size: 14px;
+      width: 260px;
+      outline: none;
+    }
+    .search-box:focus { border-color: #60a5fa; }
+    .filter-btn {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 8px;
+      padding: 8px 14px;
+      color: #94a3b8;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #2563eb22;
+      border-color: #60a5fa;
+      color: #60a5fa;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    thead th {
+      background: #1a1f2e;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #2d3448;
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-bottom: 1px solid #1e2330;
+      transition: background 0.1s;
+    }
+    tbody tr:hover { background: #1e2330; }
+    tbody td {
+      padding: 10px 14px;
+      vertical-align: middle;
+    }
+    .badge-mobile {
+      display: inline-block;
+      background: #166534;
+      color: #86efac;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .badge-check {
+      display: inline-block;
+      background: #78350f;
+      color: #fcd34d;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .badge-state {
+      display: inline-block;
+      background: #1e2a3a;
+      color: #7dd3fc;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .website-link {
+      color: #60a5fa;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .website-link:hover { text-decoration: underline; }
+    .owner-name { color: #a78bfa; font-weight: 500; }
+    .unknown { color: #475569; font-style: italic; }
+    .num { color: #475569; font-size: 12px; }
+    .notes-text { color: #64748b; font-size: 12px; max-width: 240px; }
+    .priority-badge {
+      display: inline-block;
+      background: #1e3a5f;
+      color: #60a5fa;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .biz-name { font-weight: 600; color: #f1f5f9; }
+    .empty { text-align: center; padding: 40px; color: #475569; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🐛 AU Pest Control Prospects</h1>
+  <p>LeadFlow outreach list — NSW, VIC, SA, WA (excl. QLD & national franchises) · March 2026</p>
+</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="value">50</div><div class="label">Total Prospects</div></div>
+  <div class="stat-card"><div class="value" style="color:#86efac">22</div><div class="label">Confirmed Mobiles</div></div>
+  <div class="stat-card"><div class="value" style="color:#fcd34d">28</div><div class="label">Needs Manual Check</div></div>
+  <div class="stat-card"><div class="value">32</div><div class="label">NSW</div></div>
+  <div class="stat-card"><div class="value">13</div><div class="label">VIC</div></div>
+  <div class="stat-card"><div class="value">5</div><div class="label">SA / WA / ACT</div></div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('all', this)">All 50</div>
+  <div class="tab" onclick="showTab('priority', this)">⚡ Priority (Mobile Confirmed)</div>
+  <div class="tab" onclick="showTab('nsw', this)">NSW</div>
+  <div class="tab" onclick="showTab('vic', this)">VIC</div>
+  <div class="tab" onclick="showTab('other', this)">SA / WA / ACT</div>
+</div>
+
+<div id="tab-all" class="tab-content active">
+  <div class="controls">
+    <input type="text" class="search-box" placeholder="🔍 Search business, owner, city..." onkeyup="filterTable('all-table', this.value)">
+    <button class="filter-btn active" onclick="filterMobile('all-table', 'all', this)">All</button>
+    <button class="filter-btn" onclick="filterMobile('all-table', 'mobile', this)">Mobile only</button>
+    <button class="filter-btn" onclick="filterMobile('all-table', 'check', this)">Needs check</button>
+  </div>
+  <table id="all-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Business Name</th>
+        <th>Owner</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Website</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="all-body"></tbody>
+  </table>
+</div>
+
+<div id="tab-priority" class="tab-content">
+  <div class="controls">
+    <input type="text" class="search-box" placeholder="🔍 Search..." onkeyup="filterTable('priority-table', this.value)">
+  </div>
+  <table id="priority-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Business Name</th>
+        <th>Owner</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <tbody id="priority-body"></tbody>
+  </table>
+</div>
+
+<div id="tab-nsw" class="tab-content">
+  <div class="controls">
+    <input type="text" class="search-box" placeholder="🔍 Search NSW..." onkeyup="filterTable('nsw-table', this.value)">
+  </div>
+  <table id="nsw-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Business Name</th>
+        <th>Owner</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>Website</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="nsw-body"></tbody>
+  </table>
+</div>
+
+<div id="tab-vic" class="tab-content">
+  <div class="controls">
+    <input type="text" class="search-box" placeholder="🔍 Search VIC..." onkeyup="filterTable('vic-table', this.value)">
+  </div>
+  <table id="vic-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Business Name</th>
+        <th>Owner</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>Website</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="vic-body"></tbody>
+  </table>
+</div>
+
+<div id="tab-other" class="tab-content">
+  <div class="controls">
+    <input type="text" class="search-box" placeholder="🔍 Search..." onkeyup="filterTable('other-table', this.value)">
+  </div>
+  <table id="other-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Business Name</th>
+        <th>Owner</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Website</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="other-body"></tbody>
+  </table>
+</div>
+
+<script>
+const prospects = [
+  {n:1, name:"Penrith Pest Control Services", owner:"Unknown", mobile:"0427 907 199", city:"Penrith", state:"NSW", url:"https://www.penrithpestcontrolservices.com.au", notes:"Family-owned, established 1952, 3 technicians"},
+  {n:2, name:"Wilson's Pest Control", owner:"Unknown", mobile:null, city:"Castle Hill", state:"NSW", url:"https://www.wilsonspestcontrol.com.au", notes:"Independent local, Hills District"},
+  {n:3, name:"Hit Em Hard Pest Management", owner:"Scott Porter", mobile:"0403 679 229", city:"West Footscray", state:"VIC", url:"https://pmspestcontrol.com.au", notes:"Family-owned 15+ years, owner named"},
+  {n:4, name:"Cranbourne Pest Control", owner:"Darrin", mobile:"0420 247 910", city:"Cranbourne", state:"VIC", url:"https://www.cranbournepestcontrol.com.au", notes:"10+ years, SE Melbourne"},
+  {n:5, name:"Now Pest Control (Hills District)", owner:"Unknown", mobile:"0418 385 653", city:"Castle Hill", state:"NSW", url:"https://nowpestcontrol.com.au", notes:"10+ years, Hills District"},
+  {n:6, name:"Pest Control SYD", owner:"Unknown", mobile:"0403 069 615", city:"Sydney CBD", state:"NSW", url:"https://www.pestcontrolsyd.com.au", notes:"Premium independent"},
+  {n:7, name:"Premier Pest Control Wollongong", owner:"Unknown", mobile:"0414 056 994", city:"Wollongong", state:"NSW", url:"https://www.premierpestcontrolwollongong.com.au", notes:"Local independent"},
+  {n:8, name:"Billy Lanes Pest Control", owner:"Billy Lane", mobile:"0413 594 556", city:"Wollongong", state:"NSW", url:"https://www.billylanespestcontrol.com.au", notes:"Sole operator, termite inspections"},
+  {n:9, name:"Bay City Pest Control", owner:"Con Toulas", mobile:null, city:"Geelong", state:"VIC", url:"https://www.baycitypestcontrol.com.au", notes:"Family-owned since 2002, 1800 free call"},
+  {n:10, name:"Geelong Pest Control", owner:"Unknown", mobile:null, city:"Geelong", state:"VIC", url:"https://www.geelongpest.com.au", notes:"Award winner 2023, landline only"},
+  {n:11, name:"Biteless Pest Control", owner:"Unknown", mobile:null, city:"Bendigo", state:"VIC", url:"https://www.bitelesspestcontrol.com.au", notes:"Family-operated, Central Victoria"},
+  {n:12, name:"Thunderbear Pest Control", owner:"Torben", mobile:"0411 046 377", city:"Shelly Beach (Central Coast)", state:"NSW", url:"https://www.thunderbear.com.au", notes:"Owner/operator Torben, family-run since 2011"},
+  {n:13, name:"Coastwide Pest Control", owner:"Unknown", mobile:"0425 383 749", city:"Central Coast", state:"NSW", url:"https://coastwidepestcontrol.com.au", notes:"Family-owned, 20+ years"},
+  {n:14, name:"Terminate Pest Control", owner:"Craig Williams", mobile:"0413 993 245", city:"Wagga Wagga", state:"NSW", url:"https://www.terminatepestcontrol.com.au", notes:"Established 1999, local family business"},
+  {n:15, name:"Cantips Pest Control", owner:"Unknown", mobile:"0499 002 361", city:"Albury", state:"NSW", url:"https://www.cantipspestcontrolalbury.com.au", notes:"Owner-operated, 15+ years"},
+  {n:16, name:"Pianto's Pest Control", owner:"Unknown", mobile:null, city:"Albury", state:"NSW", url:"https://www.piantospestcontrol.com.au", notes:"Family-owned 25+ years, landline only"},
+  {n:17, name:"Border Pest Control", owner:"Unknown", mobile:null, city:"Albury", state:"NSW", url:"https://www.borderpestcontrol.com.au", notes:"Locally owned, 20+ years"},
+  {n:18, name:"JKD Pest & Carpentry", owner:"Unknown", mobile:"0431 631 223", city:"Dubbo", state:"NSW", url:"https://www.jkdpestcarpentry.com.au", notes:"Local, operating since 2015"},
+  {n:19, name:"Able Pest Abatement (Eastern Suburbs)", owner:"Jayson Amisano", mobile:"0419 941 994", city:"Bondi", state:"NSW", url:"https://pestcontrol-easternsuburbs.com.au", notes:"Owner named, eco-friendly methods"},
+  {n:20, name:"Inner West Pest Control", owner:"Paul", mobile:"0491 497 378", city:"Inner West Sydney", state:"NSW", url:"https://www.innerwestpestcontrol.com.au", notes:"Owner 'Paul' named on site"},
+  {n:21, name:"Clean & Green Pest Control", owner:"Unknown", mobile:null, city:"Northern Beaches", state:"NSW", url:"https://www.cleanandgreenpest.com.au", notes:"Family-owned since 2016, eco-friendly"},
+  {n:22, name:"Everest Pest Control", owner:"Unknown", mobile:"0434 933 644", city:"Manly Vale", state:"NSW", url:"https://epest.com.au", notes:"Family-run, 21+ years"},
+  {n:23, name:"R.I.P. Pest Management", owner:"Robert", mobile:null, city:"Northern Beaches", state:"NSW", url:"https://www.rippestmanagement.com.au", notes:"25+ years, 'Robert' in reviews"},
+  {n:24, name:"Pesty Girls Pest Management", owner:"Unknown", mobile:"0415 191 878", city:"Marrickville", state:"NSW", url:"https://www.pestygirls.com.au", notes:"Female-owned, 7+ years, Inner West"},
+  {n:25, name:"Pest Away Sydney", owner:"Adam", mobile:null, city:"Zetland/Bankstown", state:"NSW", url:"https://www.pestawaysydney.com.au", notes:"Owner 'Adam' in reviews, 1300 number only"},
+  {n:26, name:"ABC Pest Control Sydney", owner:"Unknown", mobile:"0404 130 944", city:"Sutherland Shire", state:"NSW", url:"https://abcpestcontrolsydney.com.au", notes:"Independent, Sutherland Shire"},
+  {n:27, name:"Dependable Pest Control", owner:"Dean", mobile:null, city:"Sutherland Shire", state:"NSW", url:"https://www.dependablepestcontrol.com.au", notes:"Operating since 1964, 'Dean' in testimonials"},
+  {n:28, name:"M&M Termite and Pest Control", owner:"Unknown", mobile:null, city:"Sydney (metro-wide)", state:"NSW", url:"https://www.mandmpest.com.au", notes:"Award-winning, 35+ years, all Sydney"},
+  {n:29, name:"Gippsland Pest Management", owner:"Shannon", mobile:"0458 003 430", city:"Warragul", state:"VIC", url:"https://www.gippspest.com.au", notes:"Family-owned, founder Shannon, 20+ years"},
+  {n:30, name:"Drummond Pest Control", owner:"Marshall Drummond", mobile:"0487 033 440", city:"Werribee", state:"VIC", url:"https://drummondpestcontrol.com.au", notes:"Owner Marshall Drummond, 34+ years"},
+  {n:31, name:"Buzz Me Pest Control", owner:"Unknown", mobile:null, city:"Boronia", state:"VIC", url:"https://buzzmepestcontrol.com.au", notes:"Local Boronia, Eastern Suburbs Melbourne"},
+  {n:32, name:"Trimec Pest Control", owner:"Unknown", mobile:null, city:"Richmond", state:"VIC", url:"https://trimecpestcontrol.com", notes:"Based 503 Swan St Richmond, inner Melbourne"},
+  {n:33, name:"Armor Pest Control Melbourne", owner:"Unknown", mobile:null, city:"Moorabbin", state:"VIC", url:"https://armorpestcontrol.com.au", notes:"Wide SE Melbourne suburbs"},
+  {n:34, name:"Ballarat Pest Control", owner:"David", mobile:null, city:"Ballarat", state:"VIC", url:"https://www.ballaratpestcontrol.net", notes:"30+ years, 'David and sons', Central Highlands"},
+  {n:35, name:"Protec Pest and Cleaning", owner:"Unknown", mobile:"0403 977 191", city:"Clyde/Cranbourne", state:"VIC", url:"https://protecpestandcleaning.com.au", notes:"SE Melbourne"},
+  {n:36, name:"Canberra Pest Control", owner:"Unknown", mobile:null, city:"Canberra", state:"ACT", url:"https://canberrapestcontrol.com.au", notes:"100% Canberra-owned 50+ years"},
+  {n:37, name:"ACT Pest Control", owner:"Unknown", mobile:null, city:"Fyshwick (Canberra)", state:"ACT", url:"https://actpestcontrol.com.au", notes:"Family-owned, serves ACT and Queanbeyan"},
+  {n:38, name:"Adelaide Pest Exterminators (A.P.E.)", owner:"Unknown", mobile:null, city:"Adelaide", state:"SA", url:"https://adelaidepestexterminators.com.au", notes:"Family-run 35+ years"},
+  {n:39, name:"JS Pest Solutions", owner:"Unknown", mobile:"0466 090 250", city:"Adelaide", state:"SA", url:"https://jspestsolutions.com.au", notes:"20+ years, independent, SA-wide"},
+  {n:40, name:"Perth Pest Control", owner:"Unknown", mobile:null, city:"Perth", state:"WA", url:"https://www.perthpest.com.au", notes:"100% family-owned since 1999"},
+  {n:41, name:"Cottesloe Pest Control", owner:"Unknown", mobile:null, city:"Cottesloe", state:"WA", url:"https://www.cottesloepestcontrol.com", notes:"Family-owned since 1958, Perth/Fremantle"},
+  {n:42, name:"Penpest (Mornington Peninsula)", owner:"Harry", mobile:null, city:"Mornington Peninsula", state:"VIC", url:"https://penpest.au", notes:"'Harry' named in multiple Google reviews"},
+  {n:43, name:"Certified Pest Management", owner:"Essa", mobile:"0498 954 574", city:"South Penrith", state:"NSW", url:"https://certified-pestmanagement.com.au", notes:"Owner/operator Essa, end-of-lease specialist"},
+  {n:44, name:"Hamro Best Pest Control", owner:"Unknown", mobile:null, city:"Auburn", state:"NSW", url:"https://hamrobestpestcontrol.com.au", notes:"Local Sydney, Auburn/Parramatta area"},
+  {n:45, name:"Hire Us 4 Pest Control", owner:"Unknown", mobile:"0477 712 345", city:"Dandenong", state:"VIC", url:"https://hireus4pestcontrol.com.au", notes:"Melbourne-wide, Dandenong area"},
+  {n:46, name:"SS Pest Control (SSPEST)", owner:"Jeffery Wainohu", mobile:null, city:"Blacktown/Bankstown", state:"NSW", url:"https://sspestcontrol.com.au", notes:"Founded 2010 by Jeffery Wainohu, multiple locations"},
+  {n:47, name:"Pest Control Wollongong ASAP", owner:"Unknown", mobile:null, city:"Wollongong", state:"NSW", url:"https://pestcontrolwollongong.au", notes:"Local Illawarra business"},
+  {n:48, name:"Pestguard Termite and Pest", owner:"Unknown", mobile:null, city:"Central Coast", state:"NSW", url:"https://pestguardtermiteandpest.com.au", notes:"Locally owned family business"},
+  {n:49, name:"Hunter and Coast Pest Control", owner:"Unknown", mobile:null, city:"Newcastle", state:"NSW", url:"https://hcpest.com.au", notes:"Family-owned, Newcastle/Central Coast/Hunter"},
+  {n:50, name:"Go Pest Bendigo", owner:"Unknown", mobile:null, city:"Bendigo", state:"VIC", url:"https://www.gopestbendigo.com.au", notes:"Local trusted pest control, Central VIC"}
+];
+
+function mobileBadge(mobile) {
+  if (!mobile) return '<span class="badge-check">Manual check</span>';
+  return '<span class="badge-mobile">' + mobile + '</span>';
+}
+
+function ownerCell(owner) {
+  if (!owner || owner === 'Unknown') return '<span class="unknown">Unknown</span>';
+  return '<span class="owner-name">' + owner + '</span>';
+}
+
+function stateBadge(state) {
+  return '<span class="badge-state">' + state + '</span>';
+}
+
+function buildRow(p, showState, showNotes) {
+  let row = '<tr data-mobile="' + (p.mobile ? 'yes' : 'no') + '" data-state="' + p.state + '">';
+  row += '<td class="num">' + p.n + '</td>';
+  row += '<td class="biz-name">' + p.name + '</td>';
+  row += '<td>' + ownerCell(p.owner) + '</td>';
+  row += '<td>' + mobileBadge(p.mobile) + '</td>';
+  row += '<td style="white-space:nowrap;color:#94a3b8">' + p.city + '</td>';
+  if (showState) row += '<td>' + stateBadge(p.state) + '</td>';
+  row += '<td><a href="' + p.url + '" target="_blank" class="website-link">' + p.url.replace('https://','').replace('http://','').split('/')[0] + '</a></td>';
+  if (showNotes) row += '<td class="notes-text">' + (p.notes || '') + '</td>';
+  row += '</tr>';
+  return row;
+}
+
+function buildPriorityRow(p, i) {
+  let row = '<tr>';
+  row += '<td class="num">' + (i+1) + '</td>';
+  row += '<td class="biz-name">' + p.name + '</td>';
+  row += '<td>' + ownerCell(p.owner) + '</td>';
+  row += '<td><span class="badge-mobile">' + p.mobile + '</span></td>';
+  row += '<td style="white-space:nowrap;color:#94a3b8">' + p.city + '</td>';
+  row += '<td>' + stateBadge(p.state) + '</td>';
+  row += '<td><a href="' + p.url + '" target="_blank" class="website-link">' + p.url.replace('https://','').replace('http://','').split('/')[0] + '</a></td>';
+  row += '</tr>';
+  return row;
+}
+
+// All tab
+const allBody = document.getElementById('all-body');
+prospects.forEach(p => { allBody.innerHTML += buildRow(p, true, true); });
+
+// Priority tab
+const priorityBody = document.getElementById('priority-body');
+const priority = prospects.filter(p => p.mobile);
+priority.forEach((p, i) => { priorityBody.innerHTML += buildPriorityRow(p, i); });
+
+// NSW tab
+const nswBody = document.getElementById('nsw-body');
+prospects.filter(p => p.state === 'NSW').forEach((p,i) => {
+  let row = '<tr data-mobile="' + (p.mobile ? 'yes' : 'no') + '">';
+  row += '<td class="num">' + (i+1) + '</td>';
+  row += '<td class="biz-name">' + p.name + '</td>';
+  row += '<td>' + ownerCell(p.owner) + '</td>';
+  row += '<td>' + mobileBadge(p.mobile) + '</td>';
+  row += '<td style="white-space:nowrap;color:#94a3b8">' + p.city + '</td>';
+  row += '<td><a href="' + p.url + '" target="_blank" class="website-link">' + p.url.replace('https://','').replace('http://','').split('/')[0] + '</a></td>';
+  row += '<td class="notes-text">' + (p.notes||'') + '</td>';
+  row += '</tr>';
+  nswBody.innerHTML += row;
+});
+
+// VIC tab
+const vicBody = document.getElementById('vic-body');
+prospects.filter(p => p.state === 'VIC').forEach((p,i) => {
+  let row = '<tr data-mobile="' + (p.mobile ? 'yes' : 'no') + '">';
+  row += '<td class="num">' + (i+1) + '</td>';
+  row += '<td class="biz-name">' + p.name + '</td>';
+  row += '<td>' + ownerCell(p.owner) + '</td>';
+  row += '<td>' + mobileBadge(p.mobile) + '</td>';
+  row += '<td style="white-space:nowrap;color:#94a3b8">' + p.city + '</td>';
+  row += '<td><a href="' + p.url + '" target="_blank" class="website-link">' + p.url.replace('https://','').replace('http://','').split('/')[0] + '</a></td>';
+  row += '<td class="notes-text">' + (p.notes||'') + '</td>';
+  row += '</tr>';
+  vicBody.innerHTML += row;
+});
+
+// Other tab
+const otherBody = document.getElementById('other-body');
+prospects.filter(p => !['NSW','VIC'].includes(p.state)).forEach((p,i) => {
+  otherBody.innerHTML += buildRow(p, true, true);
+});
+
+function showTab(name, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+function filterTable(tableId, query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#' + tableId + ' tbody tr').forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+function filterMobile(tableId, type, btn) {
+  btn.closest('.controls').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#' + tableId + ' tbody tr').forEach(row => {
+    if (type === 'all') row.style.display = '';
+    else if (type === 'mobile') row.style.display = row.dataset.mobile === 'yes' ? '' : 'none';
+    else row.style.display = row.dataset.mobile === 'no' ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

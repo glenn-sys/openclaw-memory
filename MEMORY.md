@@ -51,6 +51,58 @@
 - Memory files: created ✅
 - Bootstrap: deleted ✅
 
+## Slack Channel Map (as of 2026-03-26)
+- DM → main agent
+- C0APGV9D83A → leadflow-agents
+- C0AN784AGR5 → leadflow-business
+- C0ANS9ARN68 → weight-of-men
+- C0ANS9CSW92 → glenn-psyche
+- C0APHE15LL8 → leadflo-outbound
+- C0ANXMGGL10 → fitness (created 2026-03-26)
+- DMs always route to main — other channels route to their bound agent
+
+## Integrations (updated 2026-03-28)
+- Composio plugin installed (v0.0.8) ✅ running, MCP connected, 7 tools registered
+- Composio consumer key: ck_0i0WL2xECeclwkhK-fDD — in openclaw.json
+- Plugin has cosmetic ID mismatch warning (pre-existing, non-breaking)
+- **Google accounts CONFIRMED CONNECTED: gmail, googlecalendar, googledocs, googledrive, slack** — verified 2026-03-28 by fetching TT event (10am-11am today)
+- Connections live in Composio cloud — persist across gateway restarts, no reconnection needed
+- DO NOT use REST API to check connections — use MCP tool call (COMPOSIO_SEARCH_TOOLS) to verify
+- gog/Google Cloud OAuth: DO NOT recommend — Glenn has failed multiple times, too complex
+- Make.com already has Gmail + Google Calendar connected — use as bridge if needed
+- Glenn's email: glenn@lead-flo.ai
+
+## Memory Failure (2026-03-26)
+- Glenn flagged: agent forgetting everything daily
+- Root cause: daily memory files not being written
+- Fix: MUST write memory/YYYY-MM-DD.md after every meaningful session
+
+## Agent Work (2026-03-23)
+### PestX Agents (Rockhampton, AU — client: Scott Lawton)
+- pestx1 + pestx 2: overflow agents, Scotty persona, gpt-4o, voice quUZw0WY0wojG5IsZAjF
+- pestxAH (agent_5601kmbqvtt2frets7sfvtt5k8g5): after-hours clone, same config but callback = "first thing in the morning" / "first thing Monday morning" on weekends
+- All 3 updated with time awareness: {{system__time_utc}}, Rockhampton = UTC+10, no daylight saving
+
+### Pestaside Agent (Auckland, NZ — agent_1601kf0g1244edxs6hk4zyr26svr)
+- Andy persona, Auckland pest control
+- Rebuilt: removed Harley callback model → now books actual appointments (day + specific time)
+- New pricing: wasps $180, cockroaches $395 2-visit, fleas $180/$350, spiders $250/$395, ants $350, rodents $395 2-visit
+- 5-step structure: acknowledge → price → approach → expectations → pause (not pushy)
+- Removed: residential/commercial question, mid-call readbacks, redundant questions
+
+### PestFree Auckland Demo (agent_9501kmd0jwbmf24rf39ea1qqfvzj)
+- Fictional company for sales demos
+- Owner: Craig Henderson (always unavailable)
+- Agent: Alex, Glenn's professional voice clone (fvMWSWjC3YLP0hZ5V5rf)
+- Full Auckland pricing, booking OR callback option
+- Optimised: stability 0.80, speed 0.95, turn_timeout 3.5s, silence_end_call 45s, temp 0.3, 35 ASR keywords
+
+## Personal
+- Glenn is into functional strength training, 46yo, muscular build, Ironman 70.3 background
+- 150kg deadlift PB, 6 dead hang pull-ups
+- Training program created: Push/Pull/Legs/Full Body 4x/week, cardio alternating days
+- Saved as Glenn-Training-Program.html in workspace
+
 ## Preferences
 - Glenn prefers step-by-step instructions, one step at a time
 - Dislikes vague or generic answers

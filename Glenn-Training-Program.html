@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glenn's Training Program</title>
+<style>
+  :root {
+    --accent: #f97316;
+    --accent2: #fb923c;
+    --bg: #0f1117;
+    --surface: #1a1d2e;
+    --surface2: #222539;
+    --border: #2e3154;
+    --text: #e2e4f0;
+    --muted: #8b8fa8;
+    --code-bg: #12151f;
+    --h1: #ffffff;
+    --h2: #f4c792;
+    --h3: #fbbf7a;
+    --link: #fb923c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  #sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 260px;
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 20px 0;
+    z-index: 100;
+  }
+
+  #sidebar-header {
+    padding: 0 20px 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  #sidebar-header h2 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  #sidebar-header p { font-size: 11px; color: var(--muted); }
+
+  #toc { padding: 0 8px; }
+
+  #toc a {
+    display: block;
+    padding: 5px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--muted);
+    transition: all 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #toc a:hover { background: var(--surface2); color: var(--text); }
+  #toc a.h1-link { font-weight: 700; color: var(--h2); font-size: 13px; margin-top: 6px; }
+  #toc a.h2-link { padding-left: 20px; }
+  #toc a.h3-link { padding-left: 32px; font-size: 11px; opacity: 0.65; }
+
+  #main {
+    margin-left: 260px;
+    padding: 48px 64px 100px;
+    max-width: 1060px;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a1d2e 0%, #2a1a0e 100%);
+    border: 1px solid #3d2a1a;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 52px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-top { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .hero-icon { font-size: 40px; }
+
+  .hero h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .hero h1 span { color: var(--accent); }
+  .hero .sub { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+
+  .stats {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .stat {
+    background: rgba(249,115,22,0.1);
+    border: 1px solid rgba(249,115,22,0.2);
+    border-radius: 10px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .stat-val {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Content */
+  #content h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--h1);
+    margin: 52px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  #content h1:first-child { margin-top: 0; }
+
+  #content h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--h2);
+    margin: 36px 0 10px;
+  }
+
+  #content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--h3);
+    margin: 24px 0 8px;
+  }
+
+  #content p { margin: 0 0 14px; }
+
+  #content strong { color: var(--accent2); }
+
+  #content ul, #content ol {
+    margin: 0 0 14px 20px;
+  }
+
+  #content li { margin-bottom: 6px; }
+  #content li::marker { color: var(--accent); }
+
+  #content blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 10px 16px;
+    margin: 16px 0;
+    background: var(--surface);
+    border-radius: 0 8px 8px 0;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  #content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* Tables */
+  #content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13.5px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  #content th {
+    background: #2a1a0e;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent2);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  #content td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  #content tr:last-child td { border-bottom: none; }
+  #content tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+  /* Session cards — h2 that look like day headers */
+  #content h2 {
+    background: linear-gradient(90deg, rgba(249,115,22,0.08), transparent);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 44px;
+  }
+
+  /* Progress bar */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #fbbf24);
+    z-index: 999;
+    transition: width 0.1s;
+  }
+
+  /* Day badge in sidebar */
+  .day-badge {
+    display: inline-block;
+    background: rgba(249,115,22,0.15);
+    color: var(--accent);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-right: 4px;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  @media (max-width: 860px) {
+    #sidebar { display: none; }
+    #main { margin-left: 0; padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <h2>💪 Program</h2>
+    <p>Strength & Definition</p>
+  </div>
+  <div id="toc"></div>
+</nav>
+
+<main id="main">
+  <div class="hero">
+    <div class="hero-top">
+      <span class="hero-icon">🏋️</span>
+      <div>
+        <h1>Glenn's <span>Training Program</span></h1>
+        <p class="sub">Strength & Definition · 4 Days/Week · Home Equipment</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-val">4</span><span class="stat-label">Days/week</span></div>
+      <div class="stat"><span class="stat-val">150kg</span><span class="stat-label">Deadlift PB</span></div>
+      <div class="stat"><span class="stat-val">6</span><span class="stat-label">Pull-ups</span></div>
+      <div class="stat"><span class="stat-val">46</span><span class="stat-label">Age</span></div>
+      <div class="stat"><span class="stat-val">70.3</span><span class="stat-label">Ironman</span></div>
+    </div>
+  </div>
+
+  <div id="content">
+    <h1>Glenn&#39;s Training Program</h1>
+<h3>Strength &amp; Definition | 4 Days/Week | Home Equipment</h3>
+<p><strong>Profile:</strong> Male, 46, muscular build, endurance background (Ironman 70.3), kettlebells + barbell + pull-up bar<br><strong>Baseline:</strong> 150kg deadlift PB, 6 dead hang pull-ups<br><strong>Goal:</strong> Muscular strength and definition<br><strong>Cardio:</strong> Running/swimming on alternate days (not programmed here)</p>
+<hr>
+<h2>Philosophy</h2>
+<p>At 46 with your background, the goal is <strong>progressive overload + metabolic density</strong> — building strength while keeping intensity high enough to drive definition. Your endurance base is an asset: you recover well and handle volume. The program leans into that with compound lifts, supersets, and kettlebell complexes that keep heart rate elevated without becoming pure cardio.</p>
+<p>4 lifting days follow a <strong>Push / Pull / Legs / Full Body</strong> split. This keeps frequency high on major muscle groups while managing fatigue across the week.</p>
+<hr>
+<h2>Weekly Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Session</th>
+<th>Cardio Days</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Monday</td>
+<td>Push (Chest, Shoulders, Triceps)</td>
+<td></td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td></td>
+<td>Run or Swim</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>Pull (Back, Biceps)</td>
+<td></td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td></td>
+<td>Run or Swim</td>
+</tr>
+<tr>
+<td>Friday</td>
+<td>Legs + Core</td>
+<td></td>
+</tr>
+<tr>
+<td>Saturday</td>
+<td>Full Body Power</td>
+<td></td>
+</tr>
+<tr>
+<td>Sunday</td>
+<td>Rest</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Adjust days to suit your schedule — the key is alternating lift/cardio with at least one full rest day.</p>
+<hr>
+<h2>Session 1 — Push (Chest, Shoulders, Triceps)</h2>
+<p><strong>Warm-up:</strong> 5 min — arm circles, band pull-aparts, light KB press x 15</p>
+<table>
+<thead>
+<tr>
+<th>Exercise</th>
+<th>Sets</th>
+<th>Reps</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Barbell Overhead Press</td>
+<td>4</td>
+<td>5, 5, 4, 4</td>
+<td>Heavy. Rest 2–3 min. Aim to add 2.5kg every 2 weeks.</td>
+</tr>
+<tr>
+<td>Barbell Floor Press</td>
+<td>3</td>
+<td>8</td>
+<td>No bench needed. Full range, pause at bottom.</td>
+</tr>
+<tr>
+<td>KB Arnold Press</td>
+<td>3</td>
+<td>10</td>
+<td>Slow and controlled. 3 sec down.</td>
+</tr>
+<tr>
+<td><strong>Superset A</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Push Press</td>
+<td>3</td>
+<td>10 per side</td>
+<td>Explosive up, controlled down.</td>
+</tr>
+<tr>
+<td>→ Diamond Push-Up</td>
+<td>3</td>
+<td>Max</td>
+<td>Rest 60 sec between supersets.</td>
+</tr>
+<tr>
+<td><strong>Superset B</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Lateral Raise</td>
+<td>3</td>
+<td>12</td>
+<td>Strict. No swinging.</td>
+</tr>
+<tr>
+<td>→ KB Tricep Overhead Extension</td>
+<td>3</td>
+<td>12</td>
+<td>Both hands on one KB.</td>
+</tr>
+</tbody></table>
+<p><strong>Finisher (5 min AMRAP):</strong></p>
+<ul>
+<li>5 push-ups</li>
+<li>10 KB swings</li>
+<li>5 pike press (feet elevated on a chair)</li>
+</ul>
+<hr>
+<h2>Session 2 — Pull (Back, Biceps)</h2>
+<p><strong>Warm-up:</strong> 5 min — dead hang 30 sec, scapular pull-ups x 10, KB row x 10 per side</p>
+<table>
+<thead>
+<tr>
+<th>Exercise</th>
+<th>Sets</th>
+<th>Reps</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Weighted Pull-Up</td>
+<td>4</td>
+<td>4, 4, 3, 3</td>
+<td>Add weight (belt/KB between feet). Currently at 6 BW — target 8 BW first, then load.</td>
+</tr>
+<tr>
+<td>Barbell Bent-Over Row</td>
+<td>4</td>
+<td>6</td>
+<td>Heavy. Overhand grip. Brace hard.</td>
+</tr>
+<tr>
+<td><strong>Superset A</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Single Arm Row</td>
+<td>3</td>
+<td>10 per side</td>
+<td>Elbow drives back, not out.</td>
+</tr>
+<tr>
+<td>→ Chin-Up</td>
+<td>3</td>
+<td>Max</td>
+<td>Palms facing you. Full dead hang each rep.</td>
+</tr>
+<tr>
+<td><strong>Superset B</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Renegade Row</td>
+<td>3</td>
+<td>8 per side</td>
+<td>Plank tight. No hip rotation.</td>
+</tr>
+<tr>
+<td>→ KB Hammer Curl</td>
+<td>3</td>
+<td>12</td>
+<td>Strict. No swinging.</td>
+</tr>
+<tr>
+<td>Dead Hang</td>
+<td>3</td>
+<td>45–60 sec</td>
+<td>Grip + shoulder health. Rest 90 sec.</td>
+</tr>
+</tbody></table>
+<p><strong>Finisher — Pull-Up Ladder:</strong>
+Start at 1 rep, go up by 1 each round until failure, then come back down.
+(e.g. 1-2-3-4-5-4-3-2-1 = 25 reps). Rest only as long as it takes to climb back on the bar.</p>
+<hr>
+<h2>Session 3 — Legs + Core</h2>
+<p><strong>Warm-up:</strong> 5 min — goblet squat x 10, hip circle x 10 each, KB Romanian deadlift x 10</p>
+<table>
+<thead>
+<tr>
+<th>Exercise</th>
+<th>Sets</th>
+<th>Reps</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Barbell Deadlift</td>
+<td>4</td>
+<td>4, 4, 3, 3</td>
+<td>Working weight ~80% of PB (~120kg). Focus on bracing and bar speed.</td>
+</tr>
+<tr>
+<td>Barbell Front Squat</td>
+<td>3</td>
+<td>6</td>
+<td>If no rack, clean the bar up. Builds quad strength + core.</td>
+</tr>
+<tr>
+<td>KB Bulgarian Split Squat</td>
+<td>3</td>
+<td>8 per leg</td>
+<td>KB in goblet position. This will hurt.</td>
+</tr>
+<tr>
+<td><strong>Superset A</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Swing</td>
+<td>4</td>
+<td>15</td>
+<td>Hinge, not squat. Explosive hip drive.</td>
+</tr>
+<tr>
+<td>→ KB Goblet Squat</td>
+<td>4</td>
+<td>10</td>
+<td>Pause 2 sec at bottom.</td>
+</tr>
+<tr>
+<td><strong>Core Block</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Suitcase Carry</td>
+<td>3</td>
+<td>30m per side</td>
+<td>Heavy KB. Forces anti-lateral flexion.</td>
+</tr>
+<tr>
+<td>→ Hollow Body Hold</td>
+<td>3</td>
+<td>30–45 sec</td>
+<td>Lower back pressed to floor.</td>
+</tr>
+<tr>
+<td>→ Ab Wheel / Barbell Rollout</td>
+<td>3</td>
+<td>8–10</td>
+<td>From knees. Extend slowly.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Session 4 — Full Body Power</h2>
+<p>This session ties everything together. Heavier on compound lifts, built around explosive power and density. Feels most like an athletic workout.</p>
+<p><strong>Warm-up:</strong> 5 min — KB halo x 10, inchworm x 5, jump squat x 10</p>
+<table>
+<thead>
+<tr>
+<th>Exercise</th>
+<th>Sets</th>
+<th>Reps</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Barbell Clean &amp; Press</td>
+<td>4</td>
+<td>5</td>
+<td>Power clean from floor → push press overhead. Full body.</td>
+</tr>
+<tr>
+<td>Pull-Up</td>
+<td>4</td>
+<td>Max-1</td>
+<td>Stop one rep before failure. Stay crisp.</td>
+</tr>
+<tr>
+<td><strong>Complex A (no rest between exercises, 2 min between rounds × 4):</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Swing</td>
+<td></td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Clean</td>
+<td></td>
+<td>5 per side</td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Press</td>
+<td></td>
+<td>5 per side</td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Front Squat</td>
+<td></td>
+<td>5 per side</td>
+<td></td>
+</tr>
+<tr>
+<td>→ KB Row</td>
+<td></td>
+<td>5 per side</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Barbell Giant Set (3 rounds, 90 sec rest):</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>→ Barbell RDL</td>
+<td></td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>→ Barbell Bent Row</td>
+<td></td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>→ Barbell Deadlift (moderate)</td>
+<td></td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Finisher — Interval (10 min):</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20 sec KB swing → 10 sec rest × 20 rounds</td>
+<td></td>
+<td></td>
+<td>Classic Tabata. Use a challenging weight.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Progression Model</h2>
+<p><strong>Strength lifts (deadlift, OHP, row, pull-up):</strong></p>
+<ul>
+<li>Add 2.5kg every 2 weeks on barbell lifts when you hit the top rep range cleanly</li>
+<li>For pull-ups: add reps first (target 10 dead hang), then add load</li>
+</ul>
+<p><strong>Accessory work:</strong></p>
+<ul>
+<li>Increase reps week 1–2, then increase weight in week 3</li>
+<li>Deload every 6th week — drop volume by 40%, keep intensity</li>
+</ul>
+<p><strong>Pull-up progression (you&#39;re at 6 — here&#39;s the path to 12+):</strong></p>
+<ul>
+<li>Week 1–2: 4 sets of 5 (leave 1 in reserve)</li>
+<li>Week 3–4: 4 sets of 6</li>
+<li>Week 5–6: 4 sets of 7</li>
+<li>Once at 10 reps: introduce weighted pull-ups (5kg to start)</li>
+</ul>
+<hr>
+<h2>Key Notes for 46-Year-Old Performance</h2>
+<ul>
+<li><strong>Warm-up is non-negotiable.</strong> Your connective tissue needs longer to prep than at 25. Add 3–5 min on top of the listed warm-ups if you feel tight.</li>
+<li><strong>Sleep is your primary recovery tool.</strong> More than supplements, more than ice baths. 7–8 hrs.</li>
+<li><strong>Protein target:</strong> ~2g per kg of bodyweight. Prioritise post-session within 30–60 min.</li>
+<li><strong>Cardio days:</strong> Keep runs/swims at easy-moderate effort on alternate days — they complement this program. Hard interval cardio AND heavy lifting on adjacent days will stall recovery.</li>
+<li><strong>Lower back:</strong> With a 150kg deadlift PB and KB volume, watch for cumulative fatigue. If your lumbar feels heavy going into Session 3, reduce deadlift weight that day — don&#39;t push through it.</li>
+<li><strong>The KB complex in Session 4</strong> will challenge your grip, shoulders and lungs simultaneously. Start with a lighter KB than you think you need.</li>
+</ul>
+<hr>
+<h2>Equipment Used</h2>
+<ul>
+<li>Barbell + plates</li>
+<li>Kettlebell(s) — ideally 2 weights (moderate + heavy)</li>
+<li>Pull-up bar</li>
+</ul>
+<p><em>No bench required — floor press substituted throughout.</em></p>
+<hr>
+<p><em>Created: March 2026</em></p>
+
+  </div>
+</main>
+
+<script>
+const headings = document.querySelectorAll('#content h1, #content h2, #content h3');
+const toc = document.getElementById('toc');
+
+headings.forEach((h, i) => {
+  const id = 'h-' + i;
+  h.id = id;
+  const a = document.createElement('a');
+  a.href = '#' + id;
+  a.textContent = h.textContent;
+  a.className = h.tagName === 'H1' ? 'h1-link' : h.tagName === 'H2' ? 'h2-link' : 'h3-link';
+  toc.appendChild(a);
+});
+
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+});
+
+document.querySelectorAll('#toc a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
