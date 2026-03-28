@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadFlow — Financial Model</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 28px 24px;
+    }
+    h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .subtitle { font-size: 13px; color: #64748b; margin-bottom: 28px; }
+
+    .assumptions {
+      background: #1a1f2e;
+      border: 1px solid #2d3448;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 12px;
+      color: #64748b;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .assumptions span { color: #94a3b8; }
+    .assumptions strong { color: #60a5fa; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .stat .label { font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .stat .val { font-size: 26px; font-weight: 700; }
+    .stat .sub { font-size: 11px; color: #475569; margin-top: 3px; }
+    .green { color: #4ade80; }
+    .blue { color: #60a5fa; }
+    .purple { color: #a78bfa; }
+    .yellow { color: #fbbf24; }
+    .orange { color: #fb923c; }
+
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 900px) { .charts { grid-template-columns: 1fr; } }
+    .chart-card {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .chart-card h3 { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px; }
+    .chart-card canvas { max-height: 240px; }
+
+    .chart-full {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+    .chart-full h3 { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px; }
+    .chart-full canvas { max-height: 260px; }
+
+    .milestones {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .milestone {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 12px;
+    }
+    .milestone .m-month { color: #60a5fa; font-weight: 700; font-size: 13px; }
+    .milestone .m-label { color: #94a3b8; margin-top: 2px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    thead th {
+      background: #1a1f2e;
+      color: #475569;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      padding: 9px 12px;
+      text-align: right;
+      border-bottom: 1px solid #2d3448;
+      white-space: nowrap;
+    }
+    thead th:first-child { text-align: left; }
+    tbody tr { border-bottom: 1px solid #181c28; transition: background 0.1s; }
+    tbody tr:hover { background: #1a1f2e; }
+    tbody td { padding: 9px 12px; text-align: right; }
+    tbody td:first-child { text-align: left; color: #94a3b8; font-weight: 500; }
+    .positive { color: #4ade80; }
+    .negative { color: #f87171; }
+    .milestone-row { background: #1e2a1e !important; }
+    .milestone-row td:first-child { color: #4ade80 !important; }
+    .highlight { font-weight: 600; }
+    .muted { color: #475569; }
+
+    .table-wrap {
+      background: #1e2330;
+      border: 1px solid #2d3448;
+      border-radius: 10px;
+      overflow: hidden;
+      overflow-x: auto;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>💰 LeadFlow — 24-Month Financial Model</h1>
+<p class="subtitle">Based on $297/month subscription · 7-day free trial · AU pest control expansion</p>
+
+<div class="assumptions">
+  <div><span>Price: </span><strong>$297/mo</strong></div>
+  <div><span>Variable cost/client: </span><strong>$70/mo</strong></div>
+  <div><span>Margin/client: </span><strong>$227/mo</strong></div>
+  <div><span>Churn: </span><strong>8% M1–6 → 6% M7–12 → 5% M13+</strong></div>
+  <div><span>Marketing: </span><strong>$0 → $800 → $2k → $3k (by tier)</strong></div>
+  <div><span>Staff: </span><strong>VA @20 clients ($1k) · FT hire @35 clients ($5.5k)</strong></div>
+  <div><span>Currency: </span><strong>AUD</strong></div>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="chart-full">
+  <h3>Revenue vs Costs vs Net Profit — 24 Months</h3>
+  <canvas id="chartPL"></canvas>
+</div>
+
+<div class="charts">
+  <div class="chart-card">
+    <h3>Active Clients Growth</h3>
+    <canvas id="chartClients"></canvas>
+  </div>
+  <div class="chart-card">
+    <h3>Cumulative Cashflow</h3>
+    <canvas id="chartCumulative"></canvas>
+  </div>
+</div>
+
+<div style="margin-bottom:14px" class="section-title">Key Milestones</div>
+<div class="milestones" id="milestones"></div>
+
+<div style="margin-bottom:14px;margin-top:28px" class="section-title">Month-by-Month Breakdown</div>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>New</th>
+        <th>Churned</th>
+        <th>Active</th>
+        <th>Revenue</th>
+        <th>Var Costs</th>
+        <th>Marketing</th>
+        <th>Staff</th>
+        <th>Total Costs</th>
+        <th>Net Profit</th>
+        <th>Cumulative</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<script>
+// ── Model Parameters ──────────────────────────────────────────
+const PRICE = 297;
+const VAR_COST = 70;
+const FIXED = 150; // base infra/tools
+
+// New paying clients per month (after trial conversion ~80%)
+const newClientsPerMonth = [
+  2, 3, 4, 5, 5, 6,    // M1-6: cold outreach phase
+  8, 8, 10, 10, 12, 12, // M7-12: referrals + early marketing
+  14, 14, 15, 15, 18, 18, // M13-18: paid marketing working
+  20, 20, 20, 22, 22, 25  // M19-24: scaled
+];
+
+// Churn rates
+const churnRates = [
+  .08,.08,.08,.08,.08,.08,
+  .06,.06,.06,.06,.06,.06,
+  .05,.05,.05,.05,.05,.05,
+  .05,.05,.05,.05,.05,.05
+];
+
+function getMarketing(clients) {
+  if (clients < 15) return 0;
+  if (clients < 25) return 800;
+  if (clients < 35) return 2000;
+  return 3000;
+}
+
+function getStaff(clients) {
+  if (clients < 20) return 0;
+  if (clients < 35) return 1000;
+  return 5500;
+}
+
+// ── Run Model ─────────────────────────────────────────────────
+let active = 0;
+let cumulative = 0;
+const rows = [];
+
+for (let i = 0; i < 24; i++) {
+  const churned = Math.round(active * churnRates[i]);
+  active = active - churned + newClientsPerMonth[i];
+
+  const revenue = active * PRICE;
+  const varCosts = active * VAR_COST;
+  const marketing = getMarketing(active);
+  const staff = getStaff(active);
+  const totalCosts = varCosts + marketing + staff + FIXED;
+  const net = revenue - totalCosts;
+  cumulative += net;
+
+  rows.push({
+    month: i + 1,
+    newClients: newClientsPerMonth[i],
+    churned,
+    active,
+    revenue,
+    varCosts,
+    marketing,
+    staff,
+    totalCosts,
+    net,
+    cumulative
+  });
+}
+
+// ── Stats Cards ───────────────────────────────────────────────
+const m12 = rows[11];
+const m24 = rows[23];
+const breakEvenMonth = rows.findIndex(r => r.cumulative > 0) + 1;
+const firstProfitMonth = rows.findIndex(r => r.net > 0) + 1;
+
+const statsEl = document.getElementById('stats');
+const statsData = [
+  { label: 'Month 12 Revenue', val: '$' + m12.revenue.toLocaleString(), sub: m12.active + ' active clients', cls: 'blue' },
+  { label: 'Month 12 Net Profit', val: '$' + m12.net.toLocaleString(), sub: 'per month', cls: 'green' },
+  { label: 'Month 24 Revenue', val: '$' + m24.revenue.toLocaleString(), sub: m24.active + ' active clients', cls: 'purple' },
+  { label: 'Month 24 Net Profit', val: '$' + m24.net.toLocaleString(), sub: 'per month', cls: 'green' },
+  { label: 'First Profitable Month', val: 'M' + firstProfitMonth, sub: 'net positive', cls: 'yellow' },
+  { label: 'Cumulative Break-Even', val: 'M' + breakEvenMonth, sub: 'total cashflow positive', cls: 'orange' },
+  { label: 'Year 1 Total Profit', val: '$' + rows.slice(0,12).reduce((s,r)=>s+r.net,0).toLocaleString(), sub: 'cumulative net', cls: 'green' },
+  { label: 'Year 2 Total Profit', val: '$' + rows.slice(12,24).reduce((s,r)=>s+r.net,0).toLocaleString(), sub: 'cumulative net', cls: 'green' },
+];
+statsData.forEach(s => {
+  statsEl.innerHTML += `<div class="stat"><div class="label">${s.label}</div><div class="val ${s.cls}">${s.val}</div><div class="sub">${s.sub}</div></div>`;
+});
+
+// ── Milestones ────────────────────────────────────────────────
+const milestoneList = [
+  { trigger: r => r.active >= 10, label: '10 clients — proof of concept' },
+  { trigger: r => r.marketing > 0, label: 'Marketing spend begins ($800/mo)' },
+  { trigger: r => r.staff === 1000, label: 'VA hired — 20 clients' },
+  { trigger: r => r.net > 0, label: 'First profitable month' },
+  { trigger: r => r.active >= 25, label: '25 clients reached' },
+  { trigger: r => r.staff === 5500, label: 'Full-time hire — 35 clients' },
+  { trigger: r => r.cumulative > 0, label: 'Cumulative break-even' },
+  { trigger: r => r.active >= 50, label: '50 clients reached' },
+  { trigger: r => r.net >= 10000, label: '$10k/month net profit' },
+];
+const msEl = document.getElementById('milestones');
+const triggered = new Set();
+rows.forEach(r => {
+  milestoneList.forEach((m, idx) => {
+    if (!triggered.has(idx) && m.trigger(r)) {
+      triggered.add(idx);
+      msEl.innerHTML += `<div class="milestone"><div class="m-month">M${r.month}</div><div class="m-label">${m.label}</div></div>`;
+    }
+  });
+});
+
+// ── Table ─────────────────────────────────────────────────────
+const milestoneMonths = new Set();
+triggered.forEach(idx => {
+  rows.forEach(r => { if (milestoneList[idx].trigger(r)) milestoneMonths.add(r.month); });
+});
+
+const tbody = document.getElementById('table-body');
+rows.forEach(r => {
+  const isMilestone = milestoneMonths.has(r.month);
+  const netClass = r.net >= 0 ? 'positive' : 'negative';
+  const cumClass = r.cumulative >= 0 ? 'positive' : 'negative';
+  tbody.innerHTML += `
+    <tr class="${isMilestone ? 'milestone-row' : ''}">
+      <td>M${r.month}${isMilestone ? ' ⭐' : ''}</td>
+      <td class="blue">+${r.newClients}</td>
+      <td class="muted">-${r.churned}</td>
+      <td class="highlight">${r.active}</td>
+      <td class="blue">$${r.revenue.toLocaleString()}</td>
+      <td class="muted">$${r.varCosts.toLocaleString()}</td>
+      <td class="muted">${r.marketing > 0 ? '$'+r.marketing.toLocaleString() : '—'}</td>
+      <td class="muted">${r.staff > 0 ? '$'+r.staff.toLocaleString() : '—'}</td>
+      <td class="muted">$${r.totalCosts.toLocaleString()}</td>
+      <td class="${netClass} highlight">$${r.net.toLocaleString()}</td>
+      <td class="${cumClass}">$${r.cumulative.toLocaleString()}</td>
+    </tr>`;
+});
+
+// ── Charts ────────────────────────────────────────────────────
+const labels = rows.map(r => 'M' + r.month);
+const chartDefaults = {
+  responsive: true,
+  maintainAspectRatio: true,
+  plugins: { legend: { labels: { color: '#64748b', font: { size: 11 } } } },
+  scales: {
+    x: { ticks: { color: '#475569', font: { size: 10 } }, grid: { color: '#1a1f2e' } },
+    y: { ticks: { color: '#475569', font: { size: 10 }, callback: v => '$' + (v/1000).toFixed(0) + 'k' }, grid: { color: '#1e2330' } }
+  }
+};
+
+// P&L Chart
+new Chart(document.getElementById('chartPL'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Revenue', data: rows.map(r=>r.revenue), borderColor: '#60a5fa', backgroundColor: '#60a5fa18', fill: true, tension: 0.4, pointRadius: 2 },
+      { label: 'Total Costs', data: rows.map(r=>r.totalCosts), borderColor: '#f87171', backgroundColor: '#f8717118', fill: true, tension: 0.4, pointRadius: 2 },
+      { label: 'Net Profit', data: rows.map(r=>r.net), borderColor: '#4ade80', backgroundColor: '#4ade8018', fill: true, tension: 0.4, pointRadius: 2 },
+    ]
+  },
+  options: { ...chartDefaults }
+});
+
+// Clients Chart
+new Chart(document.getElementById('chartClients'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Active Clients', data: rows.map(r=>r.active), backgroundColor: '#6366f1aa', borderColor: '#6366f1', borderWidth: 1 },
+      { label: 'New This Month', data: rows.map(r=>r.newClients), backgroundColor: '#22d3ee88', borderColor: '#22d3ee', borderWidth: 1 },
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#64748b', font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { color: '#475569', font: { size: 10 } }, grid: { color: '#1a1f2e' } },
+      y: { ticks: { color: '#475569', font: { size: 10 } }, grid: { color: '#1e2330' } }
+    }
+  }
+});
+
+// Cumulative Chart
+new Chart(document.getElementById('chartCumulative'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'Cumulative Cashflow',
+      data: rows.map(r=>r.cumulative),
+      borderColor: '#fbbf24',
+      backgroundColor: ctx => {
+        const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, '#fbbf2430');
+        gradient.addColorStop(1, '#fbbf2405');
+        return gradient;
+      },
+      fill: true,
+      tension: 0.4,
+      pointRadius: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { labels: { color: '#64748b', font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { color: '#475569', font: { size: 10 } }, grid: { color: '#1a1f2e' } },
+      y: { ticks: { color: '#475569', font: { size: 10 }, callback: v => '$' + (v/1000).toFixed(0) + 'k' }, grid: { color: '#1e2330' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
