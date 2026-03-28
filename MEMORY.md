@@ -32,7 +32,7 @@
 - AU compliance: must disclose AI identity on outbound calls, all-party consent for recording
 
 ## ElevenLabs API
-- API Key stored: fa72b6c19e8672a3782bac5d5f6c0d01b1024300e6fd10d71124d429de05680f
+- API Key stored: [ELEVENLABS_API_KEY]
 - Connected: 2026-03-22
 
 ## Lead Flow Business Context
@@ -63,7 +63,7 @@
 
 ## Integrations (updated 2026-03-28)
 - Composio plugin installed (v0.0.8) ✅ running, MCP connected, 7 tools registered
-- Composio consumer key: ck_0i0WL2xECeclwkhK-fDD — in openclaw.json
+- Composio consumer key: [COMPOSIO_CONSUMER_KEY] — in openclaw.json
 - Plugin has cosmetic ID mismatch warning (pre-existing, non-breaking)
 - **Google accounts CONFIRMED CONNECTED: gmail, googlecalendar, googledocs, googledrive, slack** — verified 2026-03-28 by fetching TT event (10am-11am today)
 - Connections live in Composio cloud — persist across gateway restarts, no reconnection needed
