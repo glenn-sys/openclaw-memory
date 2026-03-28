@@ -1,0 +1,94 @@
+Editor Notes: The Weight of Men — Chapter Rewrites
+Glenn Thompson / March 2026
+
+---
+
+CHAPTER ONE: NEAR DEATH
+
+Key craft decisions:
+
+The fractured POV is the chapter's structural engine. Glenn at fifteen can't narrate this scene reliably — he's dying — so the prose mimics the experience: sensory fragments, dropped signal, gaps where the narrative should be. The carpet, the lamp, the smell of the car. He doesn't know he's in Rob's car; he knows Rob's shoulders. He doesn't understand the medical emergency; he knows his heart is under his father's hand.
+
+The chapter uses two voices: the fragmented near-death experience, and the adult Glenn at forty-six who frames what it meant. This allows the chapter to do double work — the hook (pure physical sensation, immediate danger) and the thematic statement (why he's writing this at all, and who he's writing it for). The move from "nothing / black / nothing" to the adult narrator voice is the hinge. It should feel like a man surfacing.
+
+The key technical decision was to resist explaining Glenn's situation at the opening. We're in the carpet before we know it's a boy, before we know it's 1994, before we know anything. The context comes in fragments — exactly as consciousness returns. Readers will follow physical sensation without preamble. Trust them.
+
+Gary's hands appear twice: once holding Glenn in the car, once described in retrospect by the adult narrator. This plants the central paradox of the book — damage and love in the same pair of hands — early and without comment.
+
+Recommendation: The chapter currently ends with Glenn's framing of the book's scope ("three men", etc.). This is strong as a Chapter One close, but you might experiment with ending even harder on "still working on it" — cut the final paragraph — and letting the ambiguity land without the wrap. Try both and see which feels right.
+
+---
+
+CHAPTER TWO: BLOODLINES
+
+Key craft decisions:
+
+The two-kitchens opening establishes the chapter's central architecture: warmth against damage, the Fairweather world against the Thompson world. Both kitchens are given specific sensory detail before we know whose they are, which creates a moment of neutrality before the contrast lands.
+
+The Noel chapter required making the summary scenes into actual scenes. The key move was staying outside Noel's head — we're watching the performance from the children's perspective, which is correct. We should not understand Noel's inner life here; we should feel only his effect. The instruction to perform ("my kids" — the casual proprietorial pride) is more chilling than any description of violence could be, because it reveals something about how Noel understood himself. He wasn't a man who thought he was doing wrong.
+
+The toy run scene doesn't show the toys arriving with fanfare. It shows them placed on a table without comment — because Noel's version of repair was transactional, not relational. Gary's receiving of the bat without question is the small tragedy. He already knows the terms.
+
+For Gary at Heather's farm: the choice was to withhold Gary's interiority and give us only what Heather observed — him going quiet, him crying in the car, his thumb on her knuckles. We don't get inside Gary's head here because Heather didn't, and Glenn is narrating from what Heather told him. This creates an honest epistemic gap that serves the book. Glenn doesn't have full access to his father's inner life. That's part of the story.
+
+Glenn's narrator voice throughout is calibrated to be wry and exact without being arch. He's not performing grief. He's doing an excavation, and occasionally the shovel hits something he didn't expect.
+
+Recommendation: The phrase "poison blood" as a concept is woven through without being named. You may want to consider whether to ever name it directly — it's a strong motif and naming it once, at the right moment, could give readers a handle. Or you may prefer to leave it as an accumulation. Either works; just make the choice consciously.
+
+The ending paragraph — "my daughter is eighteen / now you understand" — is the chapter's emotional destination. It works because we've earned it. Don't cut it.
+
+---
+
+CHAPTER FOUR: THE WAREHOUSE
+
+Key craft decisions:
+
+The chapter opens on the sack and Noel crouching over it — action before context, exactly as the brief required. The stiff knuckles from the sailor establish Noel's violence as background fact: not a revelation, just weather. He flexes his hand once and we move on. That casualness is the point.
+
+Andrew's backstory arrives as it should: triggered by the light through the cracked windows, which are an exterior detail, which prompts an interior memory. "Freeman's Bay teaching you to count" is Andrew's philosophy rendered in a phrase, and Noel's dismissal of it defines him immediately. We know who he is from how he responds to his dead brother's optimism. The war isn't explained; it's registered and set aside, the way Noel would actually carry it.
+
+The dialogue between Noel and Gordon is preserved from whatever existed in the original and tightened. The key move is that "stuff that needs special handling" is the last thing Noel says before he shuts it down. He says it without looking at Gordon. The information lands and the chapter ends before Gordon — or the reader — can process it. That's the correct place to stop.
+
+The match at the end — the momentary illumination of Noel's face from below — is the chapter's visual signature: a flash of the man, then darkness. It mirrors the book's larger project (illuminating these men in moments, never fully).
+
+Recommendation: The Carmichael negotiation is the engine of this chapter's plot. As you continue writing the Noel strand, you'll need to decide how much of Carmichael's operation you reveal and when. The reader should feel that they're always one step behind Noel's actual knowledge — he knows more than he tells, including more than he tells the reader. That dramatic irony is your greatest tool in the Noel chapters.
+
+Consider a later scene in which we see what "special handling" actually means — with the same flat affect, the same ordinariness. The horror of Noel is that he does terrible things without theatre.
+
+---
+
+CHAPTER FIVE: THE MEETING
+
+Key craft decisions:
+
+The chapter opens in the pub before Barbara appears — smell, sound, the specific texture of the Harbour Arms. This is necessary: we need to be inside this world before we meet its newest victim. The pub is a character in its own right in Freeman's Bay chapters.
+
+Barbara's interiority before the confrontation with Jimmy was the significant addition. The original material apparently moved too quickly to the fight. Here, we spend time in Barbara's exact situation: the flat in Newton, the cousin, the biscuit factory, the fifteen pounds, the isolation. Not as summary — as the specific texture of a life that has narrowed. When we understand that Jimmy represents a bad option she's been unable to extricate herself from, his removal by Noel hits differently. Noel isn't rescuing a woman. He's replacing one danger with another, and Barbara will not be able to see that for years.
+
+The violence itself is handled with restraint — "ugly and brief" — which is correct. Freeman's Bay doesn't make a production of it. The pub fills back in. This is how violence operates in Noel's world: it is a tool, applied with precision, and life continues.
+
+The critical passage is Barbara watching him afterward. The aim was to make her response psychologically honest rather than explained. She doesn't think: *I know this is dangerous but I'm attracted to him anyway*. She feels the specific relief of having a larger threat absorb a smaller one. Her body knows what this is before she does. The line "your brain says not safe at all and the thing that decides is older than both of them" is the most direct the chapter gets about this mechanism — but it's analytical rather than judging. Glenn is not condemning his grandmother. He's trying to understand her.
+
+The ending: Noel's casual nod (registration, not acknowledgement), his exit, Barbara watching the door. "Her body knew it before her mind did." The decision made without the decider's consent. That's the door closing — the reader feels it even if Barbara doesn't yet.
+
+Recommendation: Barbara deserves more scenes before we lose her to marriage and the Thompson house. At the moment she disappears into Noel's orbit fairly quickly. If the structure allows, even one short scene of Barbara's internal life during their courtship — the small rationalizations, the things she tells herself — would deepen the tragedy considerably. We need to feel what she was giving up when she gave it up.
+
+---
+
+GENERAL CRAFT NOTES FOR THE REST OF THE NOVEL:
+
+1. POV discipline is your greatest structural asset. You're doing three generations, three voices. Keep them clean. Noel close-third, cold and flat. Gary close-third, slightly more interior access — we can feel his self-deception from inside. Glenn first person, confessional and exact. When in doubt: whose scene is this, and what does THAT person know and not know?
+
+2. The mirror motif works best when it's incidental — a physical detail (a car window, a hospital glass, a shop front) that carries the thematic weight without announcing itself. You have several strong instances already. Trust that readers who are paying attention will feel them; don't underline.
+
+3. The poison-blood motif: consider its forms carefully. Noel uses hands. Gary uses absence. Glenn uses substances. The progression is important — each generation finds a less visible way to do the damage, which makes it harder to name and harder to stop. Keep that logic consistent as you write.
+
+4. You have a structural strength in the adult Glenn voice that many writers would envy: he's unreliable not through deception but through limitation. He didn't see most of this. He's reconstructing. That epistemic honesty is very contemporary and very compelling. Lean into the gaps — what he doesn't know, what he was told, what he can only infer. The reconstruction itself tells us something.
+
+5. The hardest chapter to write will be Gary's collapse — the affairs, the drinking, the gradual abdication. Because Glenn is close to it and angry at it. The craft challenge is to let the anger live in the prose without it collapsing into verdict. Gary needs to be damned and understood at the same time. That's where the book's moral weight lives.
+
+6. The relapse chapter — the one you say you're not ready to write yet. When you are: open it in the middle of it. Don't approach it from before. Put us inside it immediately. That will protect you from the temptation to explain it, and explanation is the enemy of this kind of scene.
+
+This is a serious book. It deserves the time you're giving it.
+
+— Ed.
