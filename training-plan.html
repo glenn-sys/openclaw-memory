@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glenn's Functional Strength Plan</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e0e0e0;
+      padding: 30px 20px;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    /* KB badge */
+    .kb-badge {
+      display: inline-block;
+      background: #2a1e0a;
+      color: #ffb040;
+      border: 1px solid #a06030;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    /* Profile card */
+    .profile {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .stat {
+      background: #0f1117;
+      border-radius: 8px;
+      padding: 10px 16px;
+      flex: 1 1 140px;
+      text-align: center;
+    }
+
+    .stat .value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #7c8fff;
+    }
+
+    .stat .label {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* KB weights guide */
+    .kb-guide {
+      background: #1a1d27;
+      border: 1px solid #a06030;
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 32px;
+    }
+
+    .kb-guide h2 {
+      font-size: 0.9rem;
+      color: #ffb040;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 14px;
+    }
+
+    .kb-weights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .kb-weight {
+      background: #0f1117;
+      border-radius: 8px;
+      padding: 10px 16px;
+      flex: 1 1 160px;
+      border-left: 3px solid #a06030;
+    }
+
+    .kb-weight .kg { font-size: 1.2rem; font-weight: 700; color: #ffb040; }
+    .kb-weight .use { font-size: 0.82rem; color: #999; margin-top: 2px; }
+
+    /* Day cards */
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .day-card {
+      background: #1a1d27;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #2a2d3a;
+    }
+
+    .day-header {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .day-header .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      opacity: 0.85;
+    }
+
+    /* Day colour themes */
+    .pull .day-header  { background: #1e2a4a; color: #7aadff; border-bottom: 2px solid #3a5fa0; }
+    .pull .tag         { background: #3a5fa0; color: #c0d8ff; }
+
+    .push .day-header  { background: #2a1e3a; color: #c47aff; border-bottom: 2px solid #7040a0; }
+    .push .tag         { background: #7040a0; color: #e0c0ff; }
+
+    .legs .day-header  { background: #1e3a22; color: #7aff9a; border-bottom: 2px solid #3a9050; }
+    .legs .tag         { background: #3a9050; color: #c0ffd0; }
+
+    .full .day-header  { background: #3a2a1a; color: #ffb97a; border-bottom: 2px solid #a06030; }
+    .full .tag         { background: #a06030; color: #ffe0c0; }
+
+    .cardio .day-header { background: #1e3a3a; color: #7affee; border-bottom: 2px solid #2a9090; }
+    .cardio .tag       { background: #2a9090; color: #c0ffee; }
+
+    /* Exercise table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    thead th {
+      padding: 8px 14px;
+      text-align: left;
+      color: #666;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
+      border-bottom: 1px solid #2a2d3a;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #20232f;
+    }
+
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #20232f; }
+
+    td {
+      padding: 9px 14px;
+      vertical-align: top;
+    }
+
+    td:first-child { font-weight: 600; color: #ddd; }
+    td:nth-child(2) { color: #ffca7a; font-weight: 600; white-space: nowrap; }
+    td:nth-child(3) { color: #999; font-size: 0.83rem; }
+
+    /* Key principles */
+    .principles {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+
+    .principles h2 {
+      font-size: 1rem;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 16px;
+    }
+
+    .principles ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+    }
+
+    .principles li {
+      background: #0f1117;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: #ccc;
+      border-left: 3px solid #7c8fff;
+    }
+
+    .principles li strong { color: #fff; }
+
+    /* Progression */
+    .progression {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+
+    .progression h2 {
+      font-size: 1rem;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 16px;
+    }
+
+    .weeks {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .week-block {
+      flex: 1 1 160px;
+      background: #0f1117;
+      border-radius: 8px;
+      padding: 12px 16px;
+      border-top: 3px solid;
+    }
+
+    .week-block:nth-child(1) { border-color: #4a7aff; }
+    .week-block:nth-child(2) { border-color: #ff7a4a; }
+    .week-block:nth-child(3) { border-color: #4aff9a; }
+    .week-block:nth-child(4) { border-color: #ff4a7a; }
+
+    .week-block .wk { font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.06em; }
+    .week-block .wk-title { font-weight: 700; color: #fff; margin: 4px 0; }
+    .week-block .wk-desc { font-size: 0.82rem; color: #999; }
+
+    footer {
+      text-align: center;
+      color: #444;
+      font-size: 0.8rem;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Glenn's Functional Strength Plan</h1>
+  <p class="subtitle">46yo · 85kg · Ironman background · Push / Pull / Legs / Full Body · 4x/week · Kettlebell-integrated</p>
+
+  <!-- Profile -->
+  <div class="profile">
+    <div class="stat"><div class="value">46</div><div class="label">Age</div></div>
+    <div class="stat"><div class="value">85kg</div><div class="label">Bodyweight</div></div>
+    <div class="stat"><div class="value">150kg</div><div class="label">Deadlift PB</div></div>
+    <div class="stat"><div class="value">4</div><div class="label">Strict Pull-ups</div></div>
+    <div class="stat"><div class="value">Ironman</div><div class="label">Background</div></div>
+    <div class="stat"><div class="value">~170g</div><div class="label">Protein Target/day</div></div>
+  </div>
+
+  <!-- KB Weight Guide -->
+  <div class="kb-guide">
+    <h2>🔔 Suggested Kettlebell Weights</h2>
+    <div class="kb-weights">
+      <div class="kb-weight">
+        <div class="kg">24kg</div>
+        <div class="use">Swings, Goblet Squat, Single-arm Row, Carries</div>
+      </div>
+      <div class="kb-weight">
+        <div class="kg">28–32kg</div>
+        <div class="use">Heavy Swings, Deadlift finisher, Farmer's Carry</div>
+      </div>
+      <div class="kb-weight">
+        <div class="kg">16–20kg</div>
+        <div class="use">Turkish Get-Up, Windmill, Single-leg RDL, Press</div>
+      </div>
+      <div class="kb-weight">
+        <div class="kg">2× 20–24kg</div>
+        <div class="use">Double KB Clean &amp; Press, Double Front Rack Squat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day grid -->
+  <div class="day-grid">
+
+    <!-- Day 1: Pull -->
+    <div class="day-card pull">
+      <div class="day-header">
+        Day 1 — Pull
+        <span class="tag">Back · Biceps · Rear Delts</span>
+      </div>
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Deadlift <span class="kb-badge">or KB Deadlift</span></td><td>4 × 4–5</td><td>Current working weight: 80kg (comfortable). 90kg is next target — hard push. Progress to 85kg first.</td></tr>
+          <tr><td>Weighted Pull-ups</td><td>4 × 4</td><td>Current: 4 strict dead hang (as of Mar 28). Progress to 5–6 before adding weight.</td></tr>
+          <tr><td>KB Single-arm Row <span class="kb-badge">KB</span></td><td>3 × 8/side</td><td>Knee on bench. Full stretch at bottom.</td></tr>
+          <tr><td>KB Swing <span class="kb-badge">KB</span></td><td>4 × 15</td><td>Hip hinge power — not a squat. 28–32kg.</td></tr>
+          <tr><td>Face Pull / Band Pull-Apart</td><td>3 × 15</td><td>Shoulder health. Non-negotiable.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Day 2: Push -->
+    <div class="day-card push">
+      <div class="day-header">
+        Day 2 — Push
+        <span class="tag">Chest · Shoulders · Triceps</span>
+      </div>
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Bench Press</td><td>4 × 5</td><td>Progressive load focus.</td></tr>
+          <tr><td>KB Clean &amp; Press <span class="kb-badge">KB</span></td><td>4 × 5/side</td><td>Full body integration. Replaces strict press — more athletic.</td></tr>
+          <tr><td>KB Push Press (double) <span class="kb-badge">KB</span></td><td>3 × 6</td><td>2× KBs, front rack. Hip drive to lock out.</td></tr>
+          <tr><td>KB Windmill <span class="kb-badge">KB</span></td><td>2 × 6/side</td><td>Light. Shoulder stability + lateral chain. Don't skip.</td></tr>
+          <tr><td>Tricep Dips or Pushdowns</td><td>3 × 10</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Day 3: Legs -->
+    <div class="day-card legs">
+      <div class="day-header">
+        Day 3 — Legs
+        <span class="tag">Squat · Hinge · Single-Leg</span>
+      </div>
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Back Squat <span class="kb-badge">or KB Goblet</span></td><td>4 × 5</td><td>Barbell for load. Goblet Squat (24kg) is excellent for depth and pattern.</td></tr>
+          <tr><td>KB Romanian Deadlift <span class="kb-badge">KB</span></td><td>3 × 10/side</td><td>Single-leg, single KB. Slow eccentric. Brutal on hamstrings.</td></tr>
+          <tr><td>KB Bulgarian Split Squat <span class="kb-badge">KB</span></td><td>3 × 8/side</td><td>KB in goblet hold or two KBs at sides. Best functional leg exercise.</td></tr>
+          <tr><td>KB Swing (heavy) <span class="kb-badge">KB</span></td><td>3 × 10</td><td>Max power. Rest fully between sets.</td></tr>
+          <tr><td>Calf Raise</td><td>3 × 15</td><td>You're a runner — don't skip.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Day 4: Full Body -->
+    <div class="day-card full">
+      <div class="day-header">
+        Day 4 — Full Body
+        <span class="tag">Power · Carries · KB Skill</span>
+      </div>
+      <table>
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>KB Turkish Get-Up <span class="kb-badge">KB</span></td><td>3 × 3/side</td><td>16–20kg. Do these first — they're a full-body warm-up and skill test. No rush.</td></tr>
+          <tr><td>KB Snatch <span class="kb-badge">KB</span></td><td>4 × 5/side</td><td>24kg. Explosive hip extension into overhead. Best power developer in the KB toolkit.</td></tr>
+          <tr><td>KB Farmer's Carry <span class="kb-badge">KB</span></td><td>4 × 30m</td><td>2× heavy KBs. Loaded carry — grip, core, posture.</td></tr>
+          <tr><td>KB Rack Walk (single arm) <span class="kb-badge">KB</span></td><td>3 × 20m/side</td><td>KB in rack position. Shoulder stability + obliques.</td></tr>
+          <tr><td>Pull-ups (unweighted)</td><td>3 × max</td><td>Chase the rep count. Supinated grip.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Off days -->
+    <div class="day-card cardio">
+      <div class="day-header">
+        Off Days — Aerobic
+        <span class="tag">Swim · Run · Recovery</span>
+      </div>
+      <table>
+        <thead><tr><th>Activity</th><th>Duration</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Swim or Run</td><td>30–50 min</td><td>Zone 2 only — conversational pace. Maintain the base, don't hammer it.</td></tr>
+          <tr><td>Full Rest (1 day)</td><td>—</td><td>Mandatory. Sleep &gt; training.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Progression -->
+  <div class="progression">
+    <h2>8-Week Progression Model</h2>
+    <div class="weeks">
+      <div class="week-block">
+        <div class="wk">Weeks 1–3</div>
+        <div class="wk-title">Build</div>
+        <div class="wk-desc">Learn the KB movements. Establish baselines. TGU and snatch take technique — don't rush load.</div>
+      </div>
+      <div class="week-block">
+        <div class="wk">Week 4</div>
+        <div class="wk-title">Deload</div>
+        <div class="wk-desc">Drop to 60% load, higher reps. KB flow/movement work only. No PRs.</div>
+      </div>
+      <div class="week-block">
+        <div class="wk">Weeks 5–8</div>
+        <div class="wk-title">Load</div>
+        <div class="wk-desc">Progress KB weight each week. Step up to next bell when form is solid for all sets.</div>
+      </div>
+      <div class="week-block">
+        <div class="wk">Week 8</div>
+        <div class="wk-title">Test</div>
+        <div class="wk-desc">PR attempts: deadlift, pull-ups, KB snatch reps/weight.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Principles -->
+  <div class="principles">
+    <h2>Key Principles — 46yo Edition</h2>
+    <ul>
+      <li><strong>Recovery &gt; Volume</strong> — 8hrs sleep, ~170g protein/day. This is where gains happen.</li>
+      <li><strong>KB technique first</strong> — Turkish get-up and snatch reward patience. Ugly reps with heavy weight are wasted reps.</li>
+      <li><strong>Warm up properly</strong> — 10 mins minimum. TGU at light weight counts as warm-up on Day 4.</li>
+      <li><strong>Don't train to failure</strong> — 1–2 reps in the tank on main lifts.</li>
+      <li><strong>Protect your joints</strong> — Fish oil, face pulls, regular mobility. Your shoulders are assets.</li>
+      <li><strong>Deload every 4th week</strong> — Mandatory. Your CNS needs it.</li>
+      <li><strong>Zone 2 on off days</strong> — Maintain your aerobic base, don't demolish it.</li>
+      <li><strong>KB swings are medicine</strong> — Hip hinge pattern, posterior chain, conditioning. Do them every week.</li>
+    </ul>
+  </div>
+
+  <footer>Built for Glenn · March 2026 · Functional Strength + Kettlebell Program</footer>
+
+</div>
+</body>
+</html>
