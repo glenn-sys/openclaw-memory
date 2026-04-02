@@ -59,6 +59,7 @@
 - C0ANS9CSW92 → glenn-psyche
 - C0APHE15LL8 → leadflo-outbound
 - C0ANXMGGL10 → fitness (created 2026-03-26)
+- C0ANKFLEYPM → clawdbot-use-cases (bound to main agent 2026-03-29)
 - DMs always route to main — other channels route to their bound agent
 
 ## Integrations (updated 2026-03-28)
@@ -107,3 +108,12 @@
 - Glenn prefers step-by-step instructions, one step at a time
 - Dislikes vague or generic answers
 - Prefers concise, direct communication
+
+## How to Generate an Image and Email It (learned 2026-04-01)
+1. Generate with Nano Banana Pro: `GEMINI_API_KEY=xxx /Users/clawbot/.local/bin/uv run ~/.openclaw/skills/nano-banana-pro/scripts/generate_image.py --prompt "..." --filename "output.png" --resolution 2K --api-key xxx`
+2. Compress to under 2MB (Composio Gmail limit): `sips -Z 1200 input.png --out /tmp/compressed.png`
+3. Upload to temp host to bridge local→remote sandbox: `curl -s -F "file=@/tmp/compressed.png" "https://tmpfiles.org/api/v1/upload"` → get URL
+4. In COMPOSIO_REMOTE_WORKBENCH: download from tmpfiles URL, `upload_local_file()` to get s3key
+5. Send via `GMAIL_SEND_EMAIL` with `attachment: {name, mimetype: "image/png", s3key}`
+- GEMINI_API_KEY saved in ~/.zshrc — needs billing enabled on Google Cloud project
+- gog gmail send also supports `--attach` but requires separate OAuth setup (gog auth) — not configured yet

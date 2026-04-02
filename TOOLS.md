@@ -44,3 +44,11 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Access via: Mac node (mike's MacBook Pro)
 - Account: glenn@lead-flo.ai
 
+
+## Web Search
+- Use COMPOSIO_SEARCH_WEB (via Composio) for all web search needs
+- Do NOT use the native web_search tool or ask about Brave API — it is not configured
+- COMPOSIO_SEARCH_WEB uses Exa and is always available via the Composio connection
+- For news specifically, use COMPOSIO_SEARCH_NEWS
+- For fetching a URL's content, use COMPOSIO_SEARCH_FETCH_URL_CONTENT
+
