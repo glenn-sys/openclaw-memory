@@ -1,0 +1,415 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-04-03T00:05:00.000Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-29T02:08:40.982Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-sonnet-4-6"
+      },
+      "models": {
+        "anthropic/claude-sonnet-4-6": {
+          "alias": "sonnet",
+          "params": {
+            "cacheRetention": "short"
+          }
+        },
+        "anthropic/claude-haiku-3-5": {
+          "alias": "haiku"
+        }
+      },
+      "workspace": "/Users/clawbot/.openclaw/workspace",
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "1h"
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": "REDACTED",
+          "prompt": "Write all important context, decisions, and facts from this conversation to memory/YYYY-MM-DD.md and update MEMORY.md if anything is long-term significant. Reply NO_REPLY when done.",
+          "systemPrompt": "Session nearing compaction. Write durable memory now before context is cleared."
+        }
+      },
+      "heartbeat": {
+        "every": "30m"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "Main",
+        "workspace": "/Users/clawbot/.openclaw/workspace"
+      },
+      {
+        "id": "leadflow-agents",
+        "name": "Leadflow Agent Builder",
+        "workspace": "/Users/clawbot/.openclaw/workspace-leadflow-agents"
+      },
+      {
+        "id": "leadflow-business",
+        "name": "Leadflow Business",
+        "workspace": "/Users/clawbot/.openclaw/workspace-leadflow-business"
+      },
+      {
+        "id": "weight-of-men",
+        "name": "Weight of Men",
+        "workspace": "/Users/clawbot/.openclaw/workspace-weight-of-men"
+      },
+      {
+        "id": "glenn-psyche",
+        "name": "Glenn Psyche",
+        "workspace": "/Users/clawbot/.openclaw/workspace-glenn-psyche"
+      },
+      {
+        "id": "leadflo-outbound",
+        "name": "Leadflo Outbound",
+        "workspace": "/Users/clawbot/.openclaw/workspace-leadflo-outbound"
+      },
+      {
+        "id": "fitness",
+        "name": "Fitness Coach",
+        "workspace": "/Users/clawbot/.openclaw/workspace-fitness"
+      },
+      {
+        "id": "fitness-research",
+        "name": "Fitness Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-fitness-research",
+        "model": "anthropic/claude-haiku-3-5"
+      },
+      {
+        "id": "lead-flo-research",
+        "name": "Lead Flo Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-lead-flo-research",
+        "model": "anthropic/claude-haiku-3-5"
+      },
+      {
+        "id": "psyche-research",
+        "name": "Psyche Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-psyche-research",
+        "model": "anthropic/claude-haiku-3-5"
+      },
+      {
+        "id": "usecases-research",
+        "name": "Use Cases Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-usecases-research",
+        "model": "anthropic/claude-haiku-3-5"
+      },
+      {
+        "id": "novel-research",
+        "name": "Novel Writing Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-novel-research",
+        "model": "anthropic/claude-haiku-3-5"
+      }
+    ]
+  },
+  "tools": {
+    "profile": "coding",
+    "alsoAllow": [
+      "composio"
+    ],
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "brave",
+        "apiKey": "REDACTED"
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "leadflow-agents",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0APGV9D83A"
+        }
+      }
+    },
+    {
+      "agentId": "leadflow-business",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0AN784AGR5"
+        }
+      }
+    },
+    {
+      "agentId": "leadflow-business",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0APNM3JDFH"
+        }
+      }
+    },
+    {
+      "agentId": "weight-of-men",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0ANS9ARN68"
+        }
+      }
+    },
+    {
+      "agentId": "glenn-psyche",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0ANS9CSW92"
+        }
+      }
+    },
+    {
+      "agentId": "leadflo-outbound",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0APHE15LL8"
+        }
+      }
+    },
+    {
+      "agentId": "fitness",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0ANXMGGL10"
+        }
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0ANKFLEYPM"
+        }
+      }
+    },
+    {
+      "agentId": "fitness-research",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0AP2MVBE4F"
+        }
+      }
+    },
+    {
+      "agentId": "lead-flo-research",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0ANNH02PTL"
+        }
+      }
+    },
+    {
+      "agentId": "psyche-research",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0APMP0AFS8"
+        }
+      }
+    },
+    {
+      "agentId": "usecases-research",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0APMGZN3QC"
+        }
+      }
+    },
+    {
+      "agentId": "novel-research",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0ANS7GMYBW"
+        }
+      }
+    }
+  ],
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "+64272063724"
+      ],
+      "groupPolicy": "allowlist",
+      "debounceMs": 0,
+      "mediaMaxMb": 50
+    },
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "REDACTED",
+      "groupPolicy": "allowlist",
+      "streaming": "partial"
+    },
+    "slack": {
+      "mode": "socket",
+      "webhookPath": "/slack/events",
+      "enabled": true,
+      "botToken": "REDACTED",
+      "appToken": "REDACTED",
+      "userTokenReadOnly": "REDACTED",
+      "groupPolicy": "allowlist",
+      "streaming": "partial",
+      "nativeStreaming": true,
+      "dmPolicy": "open",
+      "allowFrom": [
+        "*"
+      ],
+      "channels": {
+        "C0APGV9D83A": {
+          "requireMention": false
+        },
+        "C0AN784AGR5": {
+          "requireMention": false
+        },
+        "C0ANS9ARN68": {
+          "requireMention": false
+        },
+        "C0ANS9CSW92": {
+          "requireMention": false
+        },
+        "C0APHE15LL8": {
+          "requireMention": false
+        },
+        "C0ANXMGGL10": {
+          "requireMention": false
+        },
+        "C0ANKFLEYPM": {
+          "requireMention": false
+        },
+        "C0AP2MVBE4F": {
+          "requireMention": false
+        },
+        "C0ANNH02PTL": {
+          "requireMention": false
+        },
+        "C0APMP0AFS8": {
+          "requireMention": false
+        },
+        "C0APMGZN3QC": {
+          "requireMention": false
+        },
+        "C0ANS7GMYBW": {
+          "requireMention": false
+        },
+        "C0APNM3JDFH": {
+          "requireMention": false
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "REDACTED"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "whatsapp": {
+        "enabled": true
+      },
+      "brave": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "apiKey": "REDACTED"
+          }
+        }
+      },
+      "composio": {
+        "enabled": true,
+        "config": {
+          "consumerKey": "REDACTED"
+        }
+      }
+    },
+    "installs": {
+      "composio": {
+        "source": "npm",
+        "spec": "@composio/openclaw-plugin",
+        "installPath": "/Users/clawbot/.openclaw/extensions/composio",
+        "version": "0.0.8",
+        "resolvedName": "@composio/openclaw-plugin",
+        "resolvedVersion": "0.0.8",
+        "resolvedSpec": "@composio/openclaw-plugin@0.0.8",
+        "integrity": "sha512-8dlafa5tifbia5F8YH4eA7HYhBrGMG49XJivR/Jutd8eGqV+57NYH/InXyZWXrCP1oViwUAy61rA4fEscWHixQ==",
+        "shasum": "c892b3dde4bf0a598625373d0d063818eb8054ff",
+        "resolvedAt": "2026-03-26T00:49:15.771Z",
+        "installedAt": "2026-03-26T00:49:26.513Z"
+      }
+    }
+  }
+}
