@@ -307,9 +307,6 @@
         "*"
       ],
       "channels": {
-        "C0APGV9D83A": {
-          "requireMention": false
-        },
         "C0AN784AGR5": {
           "requireMention": false
         },
@@ -344,6 +341,12 @@
           "requireMention": false
         },
         "C0APNM3JDFH": {
+          "requireMention": false
+        },
+        "C0APGV9D83A": {
+          "requireMention": false
+        },
+        "C0AQ8BMRSA3": {
           "requireMention": false
         }
       }
