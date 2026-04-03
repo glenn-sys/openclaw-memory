@@ -31,6 +31,9 @@
         },
         "anthropic/claude-haiku-3-5": {
           "alias": "haiku"
+        },
+        "google/gemini-2.0-flash": {
+          "alias": "flash"
         }
       },
       "workspace": "/Users/clawbot/.openclaw/workspace",
@@ -302,6 +305,13 @@
         "*"
       ],
       "streaming": "off",
+      "execApprovals": {
+        "enabled": true,
+        "approvers": [
+          "1438301281394364527"
+        ],
+        "target": "dm"
+      },
       "guilds": {
         "1489546949148278945": {
           "requireMention": false
