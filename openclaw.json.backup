@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-03T00:05:00.000Z"
+    "lastTouchedAt": "2026-04-03T09:03:11.792Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-29T02:08:40.982Z",
+    "lastRunAt": "2026-04-03T09:03:11.737Z",
     "lastRunVersion": "2026.3.13",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
@@ -292,6 +292,22 @@
       "groupPolicy": "allowlist",
       "streaming": "partial"
     },
+    "discord": {
+      "enabled": true,
+      "token": "REDACTED",
+      "groupPolicy": "open",
+      "dmPolicy": "open",
+      "allowFrom": [
+        "1438301281394364527",
+        "*"
+      ],
+      "streaming": "off",
+      "guilds": {
+        "1489546949148278945": {
+          "requireMention": false
+        }
+      }
+    },
     "slack": {
       "mode": "socket",
       "webhookPath": "/slack/events",
@@ -350,16 +366,6 @@
           "requireMention": false
         }
       }
-    },
-    "discord": {
-      "enabled": true,
-      "token": "REDACTED",
-      "guildId": "1489546949148278945",
-      "dmPolicy": "open",
-      "allowFrom": [
-        "1438301281394364527"
-      ],
-      "groupPolicy": "open"
     }
   },
   "gateway": {

@@ -104,6 +104,9 @@
 - Training program created: Push/Pull/Legs/Full Body 4x/week, cardio alternating days
 - Saved as Glenn-Training-Program.html in workspace
 
+## Discord Accounts
+- Primary: Mraeson089 (ID: 1438301281394364527) — verified 2026-04-03
+
 ## Preferences
 - Glenn prefers step-by-step instructions, one step at a time
 - Dislikes vague or generic answers
