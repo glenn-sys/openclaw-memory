@@ -350,6 +350,16 @@
           "requireMention": false
         }
       }
+    },
+    "discord": {
+      "enabled": true,
+      "token": "REDACTED",
+      "guildId": "1489546949148278945",
+      "dmPolicy": "open",
+      "allowFrom": [
+        "1438301281394364527"
+      ],
+      "groupPolicy": "open"
     }
   },
   "gateway": {
