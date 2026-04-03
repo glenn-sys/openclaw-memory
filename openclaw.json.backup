@@ -299,7 +299,7 @@
       "botToken": "REDACTED",
       "appToken": "REDACTED",
       "userTokenReadOnly": "REDACTED",
-      "groupPolicy": "allowlist",
+      "groupPolicy": "open",
       "streaming": "partial",
       "nativeStreaming": true,
       "dmPolicy": "open",
