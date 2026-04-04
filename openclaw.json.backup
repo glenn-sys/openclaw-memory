@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-03T09:03:11.792Z"
+    "lastTouchedAt": "2026-04-04T08:26:00.383Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-03T09:03:11.737Z",
@@ -266,6 +266,81 @@
           "id": "C0ANS7GMYBW"
         }
       }
+    },
+    {
+      "type": "route",
+      "agentId": "leadflow-agents",
+      "match": {
+        "channel": "discord",
+        "accountId": "channel"
+      }
+    },
+    {
+      "type": "route",
+      "agentId": "leadflow-agents",
+      "match": {
+        "channel": "discord"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1489546949982949490"
+        }
+      }
+    },
+    {
+      "agentId": "leadflow-agents",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1489901281676886027"
+        }
+      }
+    },
+    {
+      "agentId": "leadflo-outbound",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1489901340367912980"
+        }
+      }
+    },
+    {
+      "agentId": "leadflow-business",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1489901779436175360"
+        }
+      }
+    },
+    {
+      "agentId": "glenn-psyche",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1489901905508438159"
+        }
+      }
+    },
+    {
+      "agentId": "weight-of-men",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1489901963545018491"
+        }
+      }
     }
   ],
   "commands": {
@@ -299,23 +374,23 @@
       "enabled": true,
       "token": "REDACTED",
       "groupPolicy": "open",
+      "streaming": "off",
       "dmPolicy": "open",
       "allowFrom": [
         "1438301281394364527",
         "*"
       ],
-      "streaming": "off",
+      "guilds": {
+        "1489546949148278945": {
+          "requireMention": false
+        }
+      },
       "execApprovals": {
         "enabled": true,
         "approvers": [
           "1438301281394364527"
         ],
         "target": "dm"
-      },
-      "guilds": {
-        "1489546949148278945": {
-          "requireMention": false
-        }
       }
     },
     "slack": {
