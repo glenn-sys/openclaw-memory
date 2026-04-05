@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-05T01:42:43.739Z"
+    "lastTouchedAt": "2026-04-05T02:02:12.712Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-03T09:03:11.737Z",
@@ -120,6 +120,12 @@
         "name": "Novel Writing Research",
         "workspace": "/Users/clawbot/.openclaw/workspace-novel-research",
         "model": "anthropic/claude-haiku-3-5"
+      },
+      {
+        "id": "lead-flo-operations",
+        "name": "Lead-Flo Operations",
+        "workspace": "/Users/clawbot/.openclaw/workspace-lead-flo-ops",
+        "agentDir": "/Users/clawbot/.openclaw/agents/lead-flo-operations/agent"
       }
     ]
   },
@@ -354,7 +360,7 @@
       }
     },
     {
-      "agentId": "leadflo-outbound",
+      "agentId": "lead-flo-operations",
       "match": {
         "channel": "discord",
         "peer": {
