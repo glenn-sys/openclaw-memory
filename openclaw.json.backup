@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-05T02:02:12.712Z"
+    "lastTouchedAt": "2026-04-05T03:34:11.766Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-03T09:03:11.737Z",
@@ -126,6 +126,18 @@
         "name": "Lead-Flo Operations",
         "workspace": "/Users/clawbot/.openclaw/workspace-lead-flo-ops",
         "agentDir": "/Users/clawbot/.openclaw/agents/lead-flo-operations/agent"
+      },
+      {
+        "id": "brand",
+        "name": "Brand",
+        "workspace": "/Users/clawbot/.openclaw/workspace-brand",
+        "agentDir": "/Users/clawbot/.openclaw/agents/brand/agent"
+      },
+      {
+        "id": "marketing-opps-lead-flo",
+        "name": "Marketing Opps Lead-Flo",
+        "workspace": "/Users/clawbot/.openclaw/workspace-marketing-opps",
+        "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent"
       }
     ]
   },
@@ -366,6 +378,26 @@
         "peer": {
           "kind": "channel",
           "id": "1490166576559951992"
+        }
+      }
+    },
+    {
+      "agentId": "brand",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490177210668155011"
+        }
+      }
+    },
+    {
+      "agentId": "marketing-opps-lead-flo",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490191869890531500"
         }
       }
     }
