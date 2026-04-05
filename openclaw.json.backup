@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-04T08:26:00.383Z"
+    "lastTouchedAt": "2026-04-05T01:42:43.739Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-03T09:03:11.737Z",
@@ -134,6 +134,17 @@
         "provider": "brave",
         "apiKey": "REDACTED"
       }
+    },
+    "elevated": {
+      "allowFrom": {
+        "discord": [
+          "*"
+        ]
+      }
+    },
+    "exec": {
+      "security": "full",
+      "ask": "off"
     }
   },
   "bindings": [
@@ -339,6 +350,16 @@
         "peer": {
           "kind": "channel",
           "id": "1489901963545018491"
+        }
+      }
+    },
+    {
+      "agentId": "leadflo-outbound",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490166576559951992"
         }
       }
     }
