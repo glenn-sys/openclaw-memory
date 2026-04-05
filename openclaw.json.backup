@@ -1,7 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-05T06:36:17.361Z"
+    "lastTouchedAt": "2026-04-05T22:21:38.417Z"
+  },
+  "env": {
+    "ANTHROPIC_API_KEY": "REDACTED"
   },
   "wizard": {
     "lastRunAt": "2026-04-05T06:36:17.307Z",
@@ -20,7 +23,11 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "anthropic/claude-sonnet-4-6"
+        "primary": "anthropic/claude-sonnet-4-6",
+        "fallbacks": [
+          "anthropic/claude-haiku-3-5",
+          "google/gemini-2.0-flash"
+        ]
       },
       "models": {
         "anthropic/claude-sonnet-4-6": {
@@ -138,6 +145,12 @@
         "name": "Marketing Opps Lead-Flo",
         "workspace": "/Users/clawbot/.openclaw/workspace-marketing-opps",
         "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent"
+      },
+      {
+        "id": "physical",
+        "name": "Physical",
+        "workspace": "/Users/clawbot/.openclaw/workspace-physical",
+        "agentDir": "/Users/clawbot/.openclaw/agents/physical/agent"
       }
     ]
   },
@@ -161,6 +174,7 @@
       }
     },
     "exec": {
+      "host": "gateway",
       "security": "full",
       "ask": "off"
     }
@@ -297,21 +311,6 @@
       }
     },
     {
-      "type": "route",
-      "agentId": "leadflow-agents",
-      "match": {
-        "channel": "discord",
-        "accountId": "channel"
-      }
-    },
-    {
-      "type": "route",
-      "agentId": "leadflow-agents",
-      "match": {
-        "channel": "discord"
-      }
-    },
-    {
       "agentId": "main",
       "match": {
         "channel": "discord",
@@ -398,6 +397,16 @@
         "peer": {
           "kind": "channel",
           "id": "1490191869890531500"
+        }
+      }
+    },
+    {
+      "agentId": "physical",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490476237032919173"
         }
       }
     }
@@ -574,8 +583,5 @@
         "installedAt": "2026-03-26T00:49:26.513Z"
       }
     }
-  },
-  "env": {
-    "ANTHROPIC_API_KEY": "REDACTED"
   }
 }
