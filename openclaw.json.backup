@@ -574,5 +574,8 @@
         "installedAt": "2026-03-26T00:49:26.513Z"
       }
     }
+  },
+  "env": {
+    "ANTHROPIC_API_KEY": "REDACTED"
   }
 }
