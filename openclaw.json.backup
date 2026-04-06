@@ -73,6 +73,18 @@
         "name": "Lead-Flo: Marketing Opps",
         "workspace": "/Users/clawbot/.openclaw/workspace-marketing-opps",
         "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent"
+      },
+      {
+        "id": "pestx",
+        "name": "PestX",
+        "workspace": "/Users/clawbot/.openclaw/workspace-pestx",
+        "agentDir": "/Users/clawbot/.openclaw/agents/pestx/agent"
+      },
+      {
+        "id": "pestaside",
+        "name": "Pestaside",
+        "workspace": "/Users/clawbot/.openclaw/workspace-pestaside",
+        "agentDir": "/Users/clawbot/.openclaw/agents/pestaside/agent"
       }
     ]
   },
@@ -139,6 +151,26 @@
         "peer": {
           "kind": "channel",
           "id": "1490191869890531500"
+        }
+      }
+    },
+    {
+      "agentId": "pestx",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490547008853770442"
+        }
+      }
+    },
+    {
+      "agentId": "pestaside",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490547070455517314"
         }
       }
     }
