@@ -85,6 +85,12 @@
         "name": "Pestaside",
         "workspace": "/Users/clawbot/.openclaw/workspace-pestaside",
         "agentDir": "/Users/clawbot/.openclaw/agents/pestaside/agent"
+      },
+      {
+        "id": "agent-builder",
+        "name": "Agent Builder",
+        "workspace": "/Users/clawbot/.openclaw/workspace-agent-builder",
+        "agentDir": "/Users/clawbot/.openclaw/agents/agent-builder/agent"
       }
     ]
   },
@@ -171,6 +177,16 @@
         "peer": {
           "kind": "channel",
           "id": "1490547070455517314"
+        }
+      }
+    },
+    {
+      "agentId": "agent-builder",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490801706261282967"
         }
       }
     }
