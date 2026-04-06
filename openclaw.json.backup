@@ -69,80 +69,10 @@
         "workspace": "/Users/clawbot/.openclaw/workspace"
       },
       {
-        "id": "leadflow-agents",
-        "name": "Lead-Flo: Agent Lab",
-        "workspace": "/Users/clawbot/.openclaw/workspace-leadflow-agents"
-      },
-      {
-        "id": "leadflow-business",
-        "name": "Lead-Flo: Ops",
-        "workspace": "/Users/clawbot/.openclaw/workspace-leadflow-business"
-      },
-      {
-        "id": "lead-flo-research",
-        "name": "Lead-Flo: Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-lead-flo-research",
-        "model": "anthropic/claude-haiku-3-5"
-      },
-      {
-        "id": "brand",
-        "name": "Lead-Flo: Brand & Marketing",
-        "workspace": "/Users/clawbot/.openclaw/workspace-brand",
-        "agentDir": "/Users/clawbot/.openclaw/agents/brand/agent"
-      },
-      {
         "id": "marketing-opps-lead-flo",
         "name": "Lead-Flo: Marketing Opps",
         "workspace": "/Users/clawbot/.openclaw/workspace-marketing-opps",
         "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent"
-      },
-      {
-        "id": "pestx",
-        "name": "Lead-Flo: PestX",
-        "workspace": "/Users/clawbot/.openclaw/workspace-pestx"
-      },
-      {
-        "id": "pestaside",
-        "name": "Lead-Flo: Pestaside",
-        "workspace": "/Users/clawbot/.openclaw/workspace-pestaside"
-      },
-      {
-        "id": "pestfree-demo",
-        "name": "Lead-Flo: PestFree Demo",
-        "workspace": "/Users/clawbot/.openclaw/workspace-pestfree-demo"
-      },
-      {
-        "id": "research-clients",
-        "name": "Lead-Flo: Client Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-research-clients",
-        "model": "anthropic/claude-haiku-3-5"
-      },
-      {
-        "id": "glenn-psyche",
-        "name": "Personal: Psyche",
-        "workspace": "/Users/clawbot/.openclaw/workspace-glenn-psyche"
-      },
-      {
-        "id": "physical",
-        "name": "Personal: Physical",
-        "workspace": "/Users/clawbot/.openclaw/workspace-physical",
-        "agentDir": "/Users/clawbot/.openclaw/agents/physical/agent"
-      },
-      {
-        "id": "fitness",
-        "name": "Personal: Fitness",
-        "workspace": "/Users/clawbot/.openclaw/workspace-fitness"
-      },
-      {
-        "id": "weight-of-men",
-        "name": "Personal: Weight of Men",
-        "workspace": "/Users/clawbot/.openclaw/workspace-weight-of-men"
-      },
-      {
-        "id": "research-personal",
-        "name": "Personal: Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-research-personal",
-        "model": "anthropic/claude-haiku-3-5"
       }
     ]
   },
@@ -173,132 +103,12 @@
   },
   "bindings": [
     {
-      "agentId": "leadflow-agents",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0APGV9D83A"
-        }
-      }
-    },
-    {
-      "agentId": "leadflow-business",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0AN784AGR5"
-        }
-      }
-    },
-    {
-      "agentId": "leadflow-business",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0APNM3JDFH"
-        }
-      }
-    },
-    {
-      "agentId": "weight-of-men",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0ANS9ARN68"
-        }
-      }
-    },
-    {
-      "agentId": "glenn-psyche",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0ANS9CSW92"
-        }
-      }
-    },
-    {
-      "agentId": "leadflo-outbound",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0APHE15LL8"
-        }
-      }
-    },
-    {
-      "agentId": "fitness",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0ANXMGGL10"
-        }
-      }
-    },
-    {
       "agentId": "main",
       "match": {
         "channel": "slack",
         "peer": {
           "kind": "channel",
           "id": "C0ANKFLEYPM"
-        }
-      }
-    },
-    {
-      "agentId": "fitness-research",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0AP2MVBE4F"
-        }
-      }
-    },
-    {
-      "agentId": "lead-flo-research",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0ANNH02PTL"
-        }
-      }
-    },
-    {
-      "agentId": "psyche-research",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0APMP0AFS8"
-        }
-      }
-    },
-    {
-      "agentId": "usecases-research",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0APMGZN3QC"
-        }
-      }
-    },
-    {
-      "agentId": "novel-research",
-      "match": {
-        "channel": "slack",
-        "peer": {
-          "kind": "channel",
-          "id": "C0ANS7GMYBW"
         }
       }
     },
@@ -313,72 +123,12 @@
       }
     },
     {
-      "agentId": "leadflow-agents",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1489901281676886027"
-        }
-      }
-    },
-    {
-      "agentId": "leadflo-outbound",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1489901340367912980"
-        }
-      }
-    },
-    {
-      "agentId": "leadflow-business",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1489901779436175360"
-        }
-      }
-    },
-    {
-      "agentId": "glenn-psyche",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1489901905508438159"
-        }
-      }
-    },
-    {
-      "agentId": "weight-of-men",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1489901963545018491"
-        }
-      }
-    },
-    {
-      "agentId": "lead-flo-operations",
+      "agentId": "main",
       "match": {
         "channel": "discord",
         "peer": {
           "kind": "channel",
           "id": "1490166576559951992"
-        }
-      }
-    },
-    {
-      "agentId": "brand",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1490177210668155011"
         }
       }
     },
@@ -389,16 +139,6 @@
         "peer": {
           "kind": "channel",
           "id": "1490191869890531500"
-        }
-      }
-    },
-    {
-      "agentId": "physical",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "channel",
-          "id": "1490476237032919173"
         }
       }
     }
