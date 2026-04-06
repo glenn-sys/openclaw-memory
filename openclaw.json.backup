@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-04-05T23:04:56.721Z"
+    "lastTouchedAt": "2026-04-06T00:55:26.929Z"
   },
   "env": {
     "ANTHROPIC_API_KEY": "REDACTED"
@@ -423,20 +423,10 @@
   "channels": {
     "whatsapp": {
       "enabled": true,
-      "dmPolicy": "allowlist",
-      "allowFrom": [
-        "+64272063724"
-      ],
+      "dmPolicy": "pairing",
       "groupPolicy": "allowlist",
       "debounceMs": 0,
       "mediaMaxMb": 50
-    },
-    "telegram": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "botToken": "REDACTED",
-      "groupPolicy": "allowlist",
-      "streaming": "partial"
     },
     "discord": {
       "enabled": true,
@@ -459,65 +449,6 @@
           "1438301281394364527"
         ],
         "target": "dm"
-      }
-    },
-    "slack": {
-      "mode": "socket",
-      "webhookPath": "/slack/events",
-      "enabled": true,
-      "botToken": "REDACTED",
-      "appToken": "REDACTED",
-      "userTokenReadOnly": "REDACTED",
-      "groupPolicy": "open",
-      "streaming": "partial",
-      "nativeStreaming": true,
-      "dmPolicy": "open",
-      "allowFrom": [
-        "*"
-      ],
-      "channels": {
-        "C0AN784AGR5": {
-          "requireMention": false
-        },
-        "C0ANS9ARN68": {
-          "requireMention": false
-        },
-        "C0ANS9CSW92": {
-          "requireMention": false
-        },
-        "C0APHE15LL8": {
-          "requireMention": false
-        },
-        "C0ANXMGGL10": {
-          "requireMention": false
-        },
-        "C0ANKFLEYPM": {
-          "requireMention": false
-        },
-        "C0AP2MVBE4F": {
-          "requireMention": false
-        },
-        "C0ANNH02PTL": {
-          "requireMention": false
-        },
-        "C0APMP0AFS8": {
-          "requireMention": false
-        },
-        "C0APMGZN3QC": {
-          "requireMention": false
-        },
-        "C0ANS7GMYBW": {
-          "requireMention": false
-        },
-        "C0APNM3JDFH": {
-          "requireMention": false
-        },
-        "C0APGV9D83A": {
-          "requireMention": false
-        },
-        "C0AQ8BMRSA3": {
-          "requireMention": false
-        }
       }
     }
   },
