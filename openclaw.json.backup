@@ -185,13 +185,6 @@
     "dmScope": "per-channel-peer"
   },
   "channels": {
-    "whatsapp": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "debounceMs": 0,
-      "mediaMaxMb": 50
-    },
     "discord": {
       "enabled": true,
       "token": "REDACTED",
@@ -243,9 +236,6 @@
   "plugins": {
     "entries": {
       "telegram": {
-        "enabled": true
-      },
-      "whatsapp": {
         "enabled": true
       },
       "brave": {
