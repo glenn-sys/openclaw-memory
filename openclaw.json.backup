@@ -46,7 +46,7 @@
       "workspace": "/Users/clawbot/.openclaw/workspace",
       "contextPruning": {
         "mode": "cache-ttl",
-        "ttl": "1h"
+        "ttl": "6h"
       },
       "compaction": {
         "mode": "safeguard",
