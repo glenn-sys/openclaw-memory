@@ -70,87 +70,79 @@
       },
       {
         "id": "leadflow-agents",
-        "name": "Leadflow Agent Builder",
+        "name": "Lead-Flo: Agent Lab",
         "workspace": "/Users/clawbot/.openclaw/workspace-leadflow-agents"
       },
       {
         "id": "leadflow-business",
-        "name": "Leadflow Business",
+        "name": "Lead-Flo: Ops",
         "workspace": "/Users/clawbot/.openclaw/workspace-leadflow-business"
       },
       {
-        "id": "weight-of-men",
-        "name": "Weight of Men",
-        "workspace": "/Users/clawbot/.openclaw/workspace-weight-of-men"
-      },
-      {
-        "id": "glenn-psyche",
-        "name": "Glenn Psyche",
-        "workspace": "/Users/clawbot/.openclaw/workspace-glenn-psyche"
-      },
-      {
-        "id": "leadflo-outbound",
-        "name": "Leadflo Outbound",
-        "workspace": "/Users/clawbot/.openclaw/workspace-leadflo-outbound"
-      },
-      {
-        "id": "fitness",
-        "name": "Fitness Coach",
-        "workspace": "/Users/clawbot/.openclaw/workspace-fitness"
-      },
-      {
-        "id": "fitness-research",
-        "name": "Fitness Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-fitness-research",
-        "model": "anthropic/claude-haiku-3-5"
-      },
-      {
         "id": "lead-flo-research",
-        "name": "Lead Flo Research",
+        "name": "Lead-Flo: Research",
         "workspace": "/Users/clawbot/.openclaw/workspace-lead-flo-research",
         "model": "anthropic/claude-haiku-3-5"
       },
       {
-        "id": "psyche-research",
-        "name": "Psyche Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-psyche-research",
-        "model": "anthropic/claude-haiku-3-5"
-      },
-      {
-        "id": "usecases-research",
-        "name": "Use Cases Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-usecases-research",
-        "model": "anthropic/claude-haiku-3-5"
-      },
-      {
-        "id": "novel-research",
-        "name": "Novel Writing Research",
-        "workspace": "/Users/clawbot/.openclaw/workspace-novel-research",
-        "model": "anthropic/claude-haiku-3-5"
-      },
-      {
-        "id": "lead-flo-operations",
-        "name": "Lead-Flo Operations",
-        "workspace": "/Users/clawbot/.openclaw/workspace-lead-flo-ops",
-        "agentDir": "/Users/clawbot/.openclaw/agents/lead-flo-operations/agent"
-      },
-      {
         "id": "brand",
-        "name": "Brand",
+        "name": "Lead-Flo: Brand & Marketing",
         "workspace": "/Users/clawbot/.openclaw/workspace-brand",
         "agentDir": "/Users/clawbot/.openclaw/agents/brand/agent"
       },
       {
         "id": "marketing-opps-lead-flo",
-        "name": "Marketing Opps Lead-Flo",
+        "name": "Lead-Flo: Marketing Opps",
         "workspace": "/Users/clawbot/.openclaw/workspace-marketing-opps",
         "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent"
       },
       {
+        "id": "pestx",
+        "name": "Lead-Flo: PestX",
+        "workspace": "/Users/clawbot/.openclaw/workspace-pestx"
+      },
+      {
+        "id": "pestaside",
+        "name": "Lead-Flo: Pestaside",
+        "workspace": "/Users/clawbot/.openclaw/workspace-pestaside"
+      },
+      {
+        "id": "pestfree-demo",
+        "name": "Lead-Flo: PestFree Demo",
+        "workspace": "/Users/clawbot/.openclaw/workspace-pestfree-demo"
+      },
+      {
+        "id": "research-clients",
+        "name": "Lead-Flo: Client Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-research-clients",
+        "model": "anthropic/claude-haiku-3-5"
+      },
+      {
+        "id": "glenn-psyche",
+        "name": "Personal: Psyche",
+        "workspace": "/Users/clawbot/.openclaw/workspace-glenn-psyche"
+      },
+      {
         "id": "physical",
-        "name": "Physical",
+        "name": "Personal: Physical",
         "workspace": "/Users/clawbot/.openclaw/workspace-physical",
         "agentDir": "/Users/clawbot/.openclaw/agents/physical/agent"
+      },
+      {
+        "id": "fitness",
+        "name": "Personal: Fitness",
+        "workspace": "/Users/clawbot/.openclaw/workspace-fitness"
+      },
+      {
+        "id": "weight-of-men",
+        "name": "Personal: Weight of Men",
+        "workspace": "/Users/clawbot/.openclaw/workspace-weight-of-men"
+      },
+      {
+        "id": "research-personal",
+        "name": "Personal: Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-research-personal",
+        "model": "anthropic/claude-haiku-3-5"
       }
     ]
   },
