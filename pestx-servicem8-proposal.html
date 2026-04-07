@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead-Flo: PestX ServiceM8 Integration Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .proposal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Header with gradient and branding */
+        .header {
+            background: linear-gradient(135deg, #3B7DED 0%, #00C9A7 100%);
+            color: white;
+            padding: 60px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        /* Section padding and spacing */
+        .section {
+            padding: 50px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3B7DED, #00C9A7);
+        }
+
+        /* Intro section */
+        .intro {
+            background: #f8f9fa;
+            padding: 30px 50px;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .intro-item h3 {
+            color: #3B7DED;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .intro-item p {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .intro-main {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            padding-top: 20px;
+        }
+
+        /* Scope of work section */
+        .scope-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .scope-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: linear-gradient(135deg, #3B7DED, #00C9A7);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .scope-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .scope-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Benefits section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .benefit-card {
+            padding: 25px;
+            border-left: 4px solid #3B7DED;
+            background: #f8f9fa;
+        }
+
+        .benefit-card h4 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Investment section */
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .investment-table th {
+            background: linear-gradient(135deg, #3B7DED, #00C9A7);
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .investment-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .investment-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .investment-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .investment-table .amount {
+            font-weight: bold;
+            color: #3B7DED;
+            font-size: 15px;
+        }
+
+        /* Timeline section */
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(135deg, rgba(59, 125, 237, 0.05), rgba(0, 201, 167, 0.05));
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .timeline-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: linear-gradient(135deg, #3B7DED, #00C9A7);
+            color: white;
+            border-radius: 8px;
+            font-size: 28px;
+        }
+
+        .timeline-content h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* CTA section */
+        .cta {
+            background: linear-gradient(135deg, #3B7DED 0%, #00C9A7 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cta h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 15px;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #3B7DED;
+            padding: 14px 40px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Signature section */
+        .signature-section {
+            padding: 50px;
+            background: #f8f9fa;
+        }
+
+        .signature-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .signature-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signature-line {
+            border-top: 2px solid #333;
+            width: 250px;
+            margin-bottom: 8px;
+        }
+
+        .signature-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: #555;
+            margin-top: 25px;
+        }
+
+        .contact-info strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 30px 50px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .proposal-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .benefit-card,
+            .timeline {
+                page-break-inside: avoid;
+            }
+
+            .cta-button {
+                display: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .intro-grid,
+            .benefits-grid,
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 40px 30px;
+            }
+
+            .section {
+                padding: 30px;
+            }
+
+            .logo-text {
+                font-size: 24px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Upward arrow icon -->
+                    <g fill="white">
+                        <!-- Arrow shaft -->
+                        <rect x="17" y="15" width="6" height="18" rx="2"/>
+                        <!-- Arrow head -->
+                        <polygon points="20,8 28,16 12,16"/>
+                    </g>
+                </svg>
+                <span class="logo-text">lead-flo</span>
+            </div>
+            <h1>ServiceM8 Integration Proposal</h1>
+            <p>Voice Agent → Job Ticket Automation</p>
+            <p style="margin-top: 20px; font-size: 13px; opacity: 0.85;">For: PestX | Rockhampton, AU</p>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="intro">
+            <div class="intro-grid">
+                <div class="intro-item">
+                    <h3>From</h3>
+                    <p>
+                        <strong>Glenn Thompson</strong><br>
+                        Founder, Lead-Flo<br>
+                        <a href="mailto:glenn@lead-flo.ai" style="color: #3B7DED; text-decoration: none;">glenn@lead-flo.ai</a><br>
+                        <a href="tel:+61272063724" style="color: #3B7DED; text-decoration: none;">+61 2 7206 3724</a>
+                    </p>
+                </div>
+                <div class="intro-item">
+                    <h3>To</h3>
+                    <p>
+                        <strong>Scott Lawton</strong><br>
+                        PestX<br>
+                        Rockhampton, AU
+                    </p>
+                </div>
+            </div>
+            <p class="intro-main">
+                This proposal outlines the integration of your ElevenLabs voice agent with ServiceM8, automating the creation of job tickets from inbound calls. Every call will instantly become a job record—eliminating manual data entry, reducing missed leads, and ensuring consistent customer data.
+            </p>
+        </div>
+
+        <!-- Scope of Work Section -->
+        <div class="section">
+            <h2 class="section-title">Scope of Work</h2>
+            <div class="scope-item">
+                <div class="scope-number">1</div>
+                <div class="scope-content">
+                    <h4>Connect Voice Agent Webhook</h4>
+                    <p>Integrate ElevenLabs post-call webhook with Make.com automation pipeline.</p>
+                </div>
+            </div>
+            <div class="scope-item">
+                <div class="scope-number">2</div>
+                <div class="scope-content">
+                    <h4>Phone Number Normalisation</h4>
+                    <p>Standardise caller phone numbers (E.164 format) to local Australian format for accurate ServiceM8 matching.</p>
+                </div>
+            </div>
+            <div class="scope-item">
+                <div class="scope-number">3</div>
+                <div class="scope-content">
+                    <h4>Search Existing Clients</h4>
+                    <p>Query ServiceM8 by phone number to identify whether the caller is an existing or new customer.</p>
+                </div>
+            </div>
+            <div class="scope-item">
+                <div class="scope-number">4</div>
+                <div class="scope-content">
+                    <h4>Create Customer or Link Existing</h4>
+                    <p>If new: create contact record. If existing: link job ticket to that contact.</p>
+                </div>
+            </div>
+            <div class="scope-item">
+                <div class="scope-number">5</div>
+                <div class="scope-content">
+                    <h4>Populate Job Ticket</h4>
+                    <p>Auto-fill ticket with caller name, phone, pest type/issue, call transcript summary, and call date/time.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="section">
+            <h2 class="section-title">Why This Matters</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>Zero Manual Data Entry</h4>
+                    <p>Every inbound call automatically becomes a ServiceM8 job ticket. No re-typing. No delays.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>No Missed After-Hours Leads</h4>
+                    <p>Calls received outside business hours are instantly logged as jobs and assigned, ready for your team the next morning.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Smart Customer Matching</h4>
+                    <p>Repeat customers are automatically linked to their existing record; new customers get a fresh profile created.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Full Call Context</h4>
+                    <p>Job tickets include the call transcript summary and notes, so your team understands exactly what the customer said.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment Section -->
+        <div class="section">
+            <h2 class="section-title">Investment</h2>
+            <table class="investment-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Price (AUD)</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Setup & Integration</strong></td>
+                        <td class="amount">$600</td>
+                        <td>One-time fee for webhook configuration, ServiceM8 integration, and automation setup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ongoing Support</strong></td>
+                        <td class="amount">Included</td>
+                        <td>No additional monthly cost—covered under your existing retainer</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 14px; color: #666; padding: 15px; background: #f0f7ff; border-left: 3px solid #3B7DED;">
+                <strong>Note:</strong> This one-time setup fee covers all integration work, testing, and deployment. Ongoing support and maintenance are included in your existing arrangement.
+            </p>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="section">
+            <h2 class="section-title">Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-icon">📅</div>
+                <div class="timeline-content">
+                    <h4>Delivery: 5–7 Business Days from Approval</h4>
+                    <p>Once approved, we'll begin integration immediately. This includes setup, testing with your ElevenLabs agent and ServiceM8 account, and a handover meeting to train your team.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA / Acceptance Section -->
+        <div class="cta">
+            <h3>Ready to Automate Your Lead Pipeline?</h3>
+            <p>Approve this proposal to get started. We'll handle the integration while you focus on growing your business.</p>
+            <button class="cta-button">Approve This Proposal</button>
+            <button class="cta-button" style="background: rgba(255,255,255,0.2); color: white;">Request Changes</button>
+        </div>
+
+        <!-- Signature Section -->
+        <div class="signature-section">
+            <p class="signature-title">Acceptance & Sign-Off</p>
+            <div class="signature-grid">
+                <div class="signature-block">
+                    <div class="signature-line"></div>
+                    <span class="signature-label">Glenn Thompson, Founder</span>
+                    <span class="signature-label">Lead-Flo</span>
+                    <div class="contact-info">
+                        <strong>Lead-Flo</strong>
+                        <p><a href="mailto:glenn@lead-flo.ai" style="color: #3B7DED; text-decoration: none;">glenn@lead-flo.ai</a></p>
+                        <p><a href="tel:+61272063724" style="color: #3B7DED; text-decoration: none;">+61 2 7206 3724</a></p>
+                        <p><a href="https://lead-flo.ai" style="color: #3B7DED; text-decoration: none;">lead-flo.ai</a></p>
+                    </div>
+                </div>
+                <div class="signature-block">
+                    <div class="signature-line"></div>
+                    <span class="signature-label">Scott Lawton</span>
+                    <span class="signature-label">PestX</span>
+                    <div class="contact-info" style="margin-top: 12px;">
+                        <p style="margin-top: 8px;"><strong>Date Approved:</strong> _______________</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Lead-Flo</strong> — Voice-First Lead Automation for Service Businesses</p>
+            <p>This proposal is confidential and intended solely for the recipient. © 2026 Lead-Flo. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

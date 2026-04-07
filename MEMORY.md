@@ -51,6 +51,22 @@
 - Memory files: created ✅
 - Bootstrap: deleted ✅
 
+## Discord Channel → Agent Map (as of 2026-04-07)
+- 1489546949982949490 → main (#general)
+- 1490166576559951992 → main
+- 1490191869890531500 → marketing-opps-lead-flo
+- 1490547008853770442 → pestx
+- 1490547070455517314 → pestaside
+- 1490801706261282967 → agent-builder
+- 1490913485155074189 → psyche-research (Haiku)
+- 1490913540897505432 → business-research (Haiku)
+
+## Agent Models (as of 2026-04-07)
+- main: Sonnet | pestx: Sonnet | agent-builder: Sonnet
+- pestaside: Haiku 4-5 | marketing-opps: Flash | psyche-research: Haiku 4-5 | business-research: Haiku 4-5
+- Cache TTL: 6h (changed from 1h — saves ~NZ$114/week)
+- Haiku correct model ID: anthropic/claude-haiku-4-5 (NOT 3-5 — blocked)
+
 ## Slack Channel Map (as of 2026-03-26)
 - DM → main agent
 - C0APGV9D83A → leadflow-agents
@@ -78,25 +94,34 @@
 - Root cause: daily memory files not being written
 - Fix: MUST write memory/YYYY-MM-DD.md after every meaningful session
 
-## Agent Work (2026-03-23)
-### PestX Agents (Rockhampton, AU — client: Scott Lawton)
-- pestx1 + pestx 2: overflow agents, Scotty persona, gpt-4o, voice quUZw0WY0wojG5IsZAjF
-- pestxAH (agent_5601kmbqvtt2frets7sfvtt5k8g5): after-hours clone, same config but callback = "first thing in the morning" / "first thing Monday morning" on weekends
-- All 3 updated with time awareness: {{system__time_utc}}, Rockhampton = UTC+10, no daylight saving
+## Agent Work
+### PestX (Rockhampton, AU — client: Scott Lawton)
+- scott.lawton@pestx.com.au | Phone: (07) 49362093
+- Jan Lawton (wife): jan.lawton@pestx.com.au / jan.lawton001@gmail.com — receives weekly reports
+- pestx1 + pestx2: overflow agents, Scotty persona, gpt-4o, voice quUZw0WY0wojG5IsZAjF
+- pestxAH (agent_5601kmbqvtt2frets7sfvtt5k8g5): after-hours clone, Rockhampton UTC+10
+- Weekly reports: metrics (leadflow-pestx-report.netlify.app) + updates (leadflow-pestx-updates.netlify.app)
+- Reports are cumulative (new tab each week), NEVER auto-publish — Glenn must approve first
+- Netlify token: nfp_XJ69L6H5wNVzpeygVVL9seCXLJDTihkSeaa9
+- Netlify site IDs: updates=dad6626e-dfc8-4f0f-bdc3-51fbbc5acfe4, report=56e31501-8226-4c87-9678-7af5f645f19e
+- Make.com scenarios: PestX Scotty (4365414), Integration Webhooks (4010409), Integration Webhooks+OpenAI+ServiceM8 (4048652)
+- ServiceM8 integration in progress: ElevenLabs post-call webhook → Make → search ServiceM8 contact by phone → create job
 
-### Pestaside Agent (Auckland, NZ — agent_1601kf0g1244edxs6hk4zyr26svr)
+### Pestaside (Auckland, NZ — agent_1601kf0g1244edxs6hk4zyr26svr)
 - Andy persona, Auckland pest control
-- Rebuilt: removed Harley callback model → now books actual appointments (day + specific time)
-- New pricing: wasps $180, cockroaches $395 2-visit, fleas $180/$350, spiders $250/$395, ants $350, rodents $395 2-visit
-- 5-step structure: acknowledge → price → approach → expectations → pause (not pushy)
-- Removed: residential/commercial question, mid-call readbacks, redundant questions
+- Books actual appointments (day + specific time)
+- Pricing: wasps $180, cockroaches $395 2-visit, fleas $180/$350, spiders $250/$395, ants $350, rodents $395 2-visit
+- 5-step: acknowledge → price → approach → expectations → pause (not pushy)
 
 ### PestFree Auckland Demo (agent_9501kmd0jwbmf24rf39ea1qqfvzj)
 - Fictional company for sales demos
-- Owner: Craig Henderson (always unavailable)
-- Agent: Alex, Glenn's professional voice clone (fvMWSWjC3YLP0hZ5V5rf)
-- Full Auckland pricing, booking OR callback option
-- Optimised: stability 0.80, speed 0.95, turn_timeout 3.5s, silence_end_call 45s, temp 0.3, 35 ASR keywords
+- Agent: Alex, Glenn's voice clone (fvMWSWjC3YLP0hZ5V5rf)
+- Optimised: stability 0.80, speed 0.95, turn_timeout 3.5s, silence_end_call 45s
+
+## Make.com
+- API Token: 1dafa2f8-36a0-466b-a1eb-7bc9954098da
+- Region: us2.make.com | Org ID: 5878007 | Team ID: 1632137
+- Make scenario: Pestaside (3937873)
 
 ## Personal
 - Glenn is into functional strength training, 46yo, muscular build, Ironman 70.3 background
