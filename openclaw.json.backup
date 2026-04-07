@@ -32,14 +32,17 @@
         "anthropic/claude-sonnet-4-6": {
           "alias": "sonnet",
           "params": {
-            "cacheRetention": "short"
+            "cacheRetention": "long"
           }
         },
         "google/gemini-2.0-flash": {
           "alias": "flash"
         },
         "anthropic/claude-haiku-4-5": {
-          "alias": "haiku"
+          "alias": "haiku",
+          "params": {
+            "cacheRetention": "long"
+          }
         }
       },
       "workspace": "/Users/clawbot/.openclaw/workspace",
@@ -57,15 +60,19 @@
         }
       },
       "heartbeat": {
-        "every": "30m"
-      }
+        "every": "55m"
+      },
+      "bootstrapMaxChars": 12000
     },
     "list": [
       {
         "id": "main",
         "default": true,
         "name": "Main",
-        "workspace": "/Users/clawbot/.openclaw/workspace"
+        "workspace": "/Users/clawbot/.openclaw/workspace",
+        "model": {
+          "primary": "anthropic/claude-sonnet-4-6"
+        }
       },
       {
         "id": "marketing-opps-lead-flo",

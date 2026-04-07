@@ -1,147 +1,72 @@
 # MEMORY.md - Long-Term Memory
 
 ## About Glenn
-- Name: Glenn, based in Auckland, New Zealand (UTC+13)
-- First session: 2026-03-22
-- Main use case: Research assistant, starting with ElevenLabs voice agents
+- Auckland, NZ (UTC+13) | email: glenn@lead-flo.ai | Discord: Mraeson089 (1438301281394364527)
+- Preferences: step-by-step, concise, direct. No vague answers.
+- Personal: 46yo, functional strength training, 150kg deadlift PB, 6 pull-ups, Ironman 70.3 background
 
-## Setup History
-- 2026-03-22: First proper setup session
-- OpenClaw running as LaunchAgent on Mac (Gateway running, Node service NOT installed)
-- Memory was at 0 files — fixed this session
-- Bootstrap file was still present — needs to be cleaned up
-- Had trouble with Google Cloud Storage setup (org policy blocked service account key creation)
-- Model: anthropic/claude-sonnet-4-6
+## Lead-Flo Business
+- Clients: pest control (PestX/Pestaside) + carpet cleaning
+- Service: ElevenLabs voice agents via Make → SMS/email summary
+- Pricing: $800-1500 setup + $300-600/month | Cost ~$40-60/month + $0.12/min usage
+- Vision: AI hub for NZ/AU trade businesses (underserved market)
 
-## ElevenLabs Expertise (Fully Researched 2026-03-22)
-- Full research saved in /workspace/research/ (14 files, ~90KB)
-- Platform: $0.10/min Creator plan, LLM costs not yet billed (will change), 5 concurrent calls
-- Best LLM for real-time: gemini-2.0-flash or gpt-4o-mini (low latency)
-- Best TTS model: eleven_v3_conversational (expressive mode, same price)
-- Prompt structure: Personality / Goal / Context / Process / Tools / Guardrails / Tone
-- Critical trick: "This step is important." literally increases model attention
-- Always script the exact opening line — never let LLM improvise the greeting
-- One question at a time — must be explicitly stated in prompt
-- Soft timeout: enable at 3s with "Let me just check on that..." — critical for natural feel
-- end_call tool: must be explicitly instructed to use after farewell
-- Make integration: use post-call webhook for CRM saves (not mid-call), keep real-time scenarios < 5s
-- Gotcha: URL knowledge bases are snapshots, not live — refresh monthly
-- Gotcha: LLM costs currently absorbed by ElevenLabs but WILL be billed eventually
-- Gotcha: Twilio NZ numbers may have restrictions — consider Telnyx as alternative
-- NZ compliance: disclose recording at start of call, Privacy Act 2020 applies
-- AU compliance: must disclose AI identity on outbound calls, all-party consent for recording
-
-## ElevenLabs API
-- API Key stored: [ELEVENLABS_API_KEY]
-- Connected: 2026-03-22
-
-## Lead Flow Business Context
-- Two clients: pest control + carpet cleaning
-- Service: ElevenLabs voice agent via Make → SMS/email summary
-- Vision: expand to full AI hub for small NZ/AU trade businesses
-- Digital moats + automation solutions
-- Market gap: NZ/AU localised agents for small trades is underserved
-- Competitive price: $800-1500 setup + $300-600/month retainer
-- Cost per client: ~$40-60/month fixed + $0.12/min usage
-- At 500 min/month: ~$120 cost → $400 revenue = $280 margin per client
-
-## Setup (Fixed 2026-03-22)
-- Node LaunchAgent: installed ✅
-- Node pairing: approved ✅
-- Memory files: created ✅
-- Bootstrap: deleted ✅
-
-## Discord Channel → Agent Map (as of 2026-04-07)
-- 1489546949982949490 → main (#general)
-- 1490166576559951992 → main
-- 1490191869890531500 → marketing-opps-lead-flo
-- 1490547008853770442 → pestx
-- 1490547070455517314 → pestaside
-- 1490801706261282967 → agent-builder
-- 1490913485155074189 → psyche-research (Haiku)
-- 1490913540897505432 → business-research (Haiku)
-
-## Agent Models (as of 2026-04-07)
-- main: Sonnet | pestx: Sonnet | agent-builder: Sonnet
-- pestaside: Haiku 4-5 | marketing-opps: Flash | psyche-research: Haiku 4-5 | business-research: Haiku 4-5
-- Cache TTL: 6h (changed from 1h — saves ~NZ$114/week)
-- Haiku correct model ID: anthropic/claude-haiku-4-5 (NOT 3-5 — blocked)
-
-## Slack Channel Map (as of 2026-03-26)
-- DM → main agent
-- C0APGV9D83A → leadflow-agents
-- C0AN784AGR5 → leadflow-business
-- C0ANS9ARN68 → weight-of-men
-- C0ANS9CSW92 → glenn-psyche
-- C0APHE15LL8 → leadflo-outbound
-- C0ANXMGGL10 → fitness (created 2026-03-26)
-- C0ANKFLEYPM → clawdbot-use-cases (bound to main agent 2026-03-29)
-- DMs always route to main — other channels route to their bound agent
-
-## Integrations (updated 2026-03-28)
-- Composio plugin installed (v0.0.8) ✅ running, MCP connected, 7 tools registered
-- Composio consumer key: [COMPOSIO_CONSUMER_KEY] — in openclaw.json
-- Plugin has cosmetic ID mismatch warning (pre-existing, non-breaking)
-- **Google accounts CONFIRMED CONNECTED: gmail, googlecalendar, googledocs, googledrive, slack** — verified 2026-03-28 by fetching TT event (10am-11am today)
-- Connections live in Composio cloud — persist across gateway restarts, no reconnection needed
-- DO NOT use REST API to check connections — use MCP tool call (COMPOSIO_SEARCH_TOOLS) to verify
-- gog/Google Cloud OAuth: DO NOT recommend — Glenn has failed multiple times, too complex
-- Make.com already has Gmail + Google Calendar connected — use as bridge if needed
-- Glenn's email: glenn@lead-flo.ai
-
-## Memory Failure (2026-03-26)
-- Glenn flagged: agent forgetting everything daily
-- Root cause: daily memory files not being written
-- Fix: MUST write memory/YYYY-MM-DD.md after every meaningful session
+## ElevenLabs (researched 2026-03-22, files in /workspace/research/)
+- Plan: $0.10/min Creator, 5 concurrent calls
+- Best LLM: gemini-2.0-flash or gpt-4o-mini | Best TTS: eleven_v3_conversational
+- Key rules: script opening line, one question at a time, soft timeout 3s, explicit end_call instruction
+- Make: use post-call webhook (not mid-call) | URL knowledge bases are snapshots — refresh monthly
+- NZ: disclose recording | AU: disclose AI identity on outbound, all-party consent recording
 
 ## Agent Work
-### PestX (Rockhampton, AU — client: Scott Lawton)
-- scott.lawton@pestx.com.au | Phone: (07) 49362093
-- Jan Lawton (wife): jan.lawton@pestx.com.au / jan.lawton001@gmail.com — receives weekly reports
-- pestx1 + pestx2: overflow agents, Scotty persona, gpt-4o, voice quUZw0WY0wojG5IsZAjF
-- pestxAH (agent_5601kmbqvtt2frets7sfvtt5k8g5): after-hours clone, Rockhampton UTC+10
-- Weekly reports: metrics (leadflow-pestx-report.netlify.app) + updates (leadflow-pestx-updates.netlify.app)
-- Reports are cumulative (new tab each week), NEVER auto-publish — Glenn must approve first
+### PestX (Rockhampton AU — Scott Lawton: scott.lawton@pestx.com.au | (07) 49362093)
+- Jan Lawton (jan.lawton@pestx.com.au / jan.lawton001@gmail.com) — weekly reports
+- Agents: pestx1/pestx2 (overflow, Scotty persona, gpt-4o, voice quUZw0WY0wojG5IsZAjF)
+- pestxAH (agent_5601kmbqvtt2frets7sfvtt5k8g5): after-hours clone, UTC+10
+- Reports: leadflow-pestx-report.netlify.app + leadflow-pestx-updates.netlify.app (NEVER auto-publish)
 - Netlify token: nfp_XJ69L6H5wNVzpeygVVL9seCXLJDTihkSeaa9
-- Netlify site IDs: updates=dad6626e-dfc8-4f0f-bdc3-51fbbc5acfe4, report=56e31501-8226-4c87-9678-7af5f645f19e
-- Make.com scenarios: PestX Scotty (4365414), Integration Webhooks (4010409), Integration Webhooks+OpenAI+ServiceM8 (4048652)
-- ServiceM8 integration in progress: ElevenLabs post-call webhook → Make → search ServiceM8 contact by phone → create job
+- Netlify sites: updates=dad6626e-dfc8-4f0f-bdc3-51fbbc5acfe4, report=56e31501-8226-4c87-9678-7af5f645f19e
+- Make scenarios: PestX Scotty (4365414), Webhooks (4010409), Webhooks+OpenAI+ServiceM8 (4048652)
+- ServiceM8 integration in progress: post-call webhook → Make → find contact by phone → create job
 
-### Pestaside (Auckland, NZ — agent_1601kf0g1244edxs6hk4zyr26svr)
-- Andy persona, Auckland pest control
-- Books actual appointments (day + specific time)
+### Pestaside (Auckland NZ — agent_1601kf0g1244edxs6hk4zyr26svr)
+- Andy persona | Books appointments (day + time)
 - Pricing: wasps $180, cockroaches $395 2-visit, fleas $180/$350, spiders $250/$395, ants $350, rodents $395 2-visit
-- 5-step: acknowledge → price → approach → expectations → pause (not pushy)
+- Style: acknowledge → price → approach → expectations → pause (not pushy)
 
 ### PestFree Auckland Demo (agent_9501kmd0jwbmf24rf39ea1qqfvzj)
-- Fictional company for sales demos
-- Agent: Alex, Glenn's voice clone (fvMWSWjC3YLP0hZ5V5rf)
-- Optimised: stability 0.80, speed 0.95, turn_timeout 3.5s, silence_end_call 45s
+- Alex persona, Glenn's voice clone (fvMWSWjC3YLP0hZ5V5rf)
+- Settings: stability 0.80, speed 0.95, turn_timeout 3.5s, silence_end_call 45s
 
 ## Make.com
-- API Token: 1dafa2f8-36a0-466b-a1eb-7bc9954098da
-- Region: us2.make.com | Org ID: 5878007 | Team ID: 1632137
-- Make scenario: Pestaside (3937873)
+- Token: 1dafa2f8-36a0-466b-a1eb-7bc9954098da | us2.make.com | Org 5878007 | Team 1632137
+- Pestaside scenario: 3937873
 
-## Personal
-- Glenn is into functional strength training, 46yo, muscular build, Ironman 70.3 background
-- 150kg deadlift PB, 6 dead hang pull-ups
-- Training program created: Push/Pull/Legs/Full Body 4x/week, cardio alternating days
-- Saved as Glenn-Training-Program.html in workspace
+## Integrations
+- Composio v0.0.8 ✅ | Connected: gmail, googlecalendar, googledocs, googledrive, slack
+- Connections persist across gateway restarts — use COMPOSIO_SEARCH_TOOLS to verify (not REST API)
+- DO NOT use gog/Google Cloud OAuth — Glenn has failed multiple times
 
-## Discord Accounts
-- Primary: Mraeson089 (ID: 1438301281394364527) — verified 2026-04-03
+## Channel → Agent Map
+**Discord:** 1489546949982949490→main | 1490166576559951992→main | 1490191869890531500→marketing-opps | 1490547008853770442→pestx | 1490547070455517314→pestaside | 1490801706261282967→agent-builder | 1490913485155074189→psyche-research | 1490913540897505432→business-research
+**Slack:** DM→main | C0APGV9D83A→leadflow-agents | C0AN784AGR5→leadflow-business | C0ANS9ARN68→weight-of-men | C0ANS9CSW92→glenn-psyche | C0APHE15LL8→leadflo-outbound | C0ANXMGGL10→fitness | C0ANKFLEYPM→clawdbot-use-cases
 
-## Preferences
-- Glenn prefers step-by-step instructions, one step at a time
-- Dislikes vague or generic answers
-- Prefers concise, direct communication
+## Agent Models (updated 2026-04-08)
+- main: Sonnet | pestx: Sonnet | agent-builder: Sonnet (default haiku, main overrides to sonnet)
+- pestaside: Haiku | marketing-opps: Flash | psyche-research: Haiku | business-research: Haiku
+- Haiku model ID: anthropic/claude-haiku-4-5 (NOT 3-5)
+- Heartbeat: 55m (keeps 1h cache warm — cheaper than 30m or 2h)
+- bootstrapMaxChars: 12000 (reduce context load)
 
-## How to Generate an Image and Email It (learned 2026-04-01)
-1. Generate with Nano Banana Pro: `GEMINI_API_KEY=xxx /Users/clawbot/.local/bin/uv run ~/.openclaw/skills/nano-banana-pro/scripts/generate_image.py --prompt "..." --filename "output.png" --resolution 2K --api-key xxx`
-2. Compress to under 2MB (Composio Gmail limit): `sips -Z 1200 input.png --out /tmp/compressed.png`
-3. Upload to temp host to bridge local→remote sandbox: `curl -s -F "file=@/tmp/compressed.png" "https://tmpfiles.org/api/v1/upload"` → get URL
-4. In COMPOSIO_REMOTE_WORKBENCH: download from tmpfiles URL, `upload_local_file()` to get s3key
-5. Send via `GMAIL_SEND_EMAIL` with `attachment: {name, mimetype: "image/png", s3key}`
-- GEMINI_API_KEY saved in ~/.zshrc — needs billing enabled on Google Cloud project
-- gog gmail send also supports `--attach` but requires separate OAuth setup (gog auth) — not configured yet
+## Generate Image → Email Workflow
+1. `GEMINI_API_KEY=xxx uv run ~/.openclaw/skills/nano-banana-pro/scripts/generate_image.py --prompt "..." --resolution 2K`
+2. `sips -Z 1200 input.png --out /tmp/compressed.png` (under 2MB)
+3. Upload to tmpfiles.org → pass URL to COMPOSIO_REMOTE_WORKBENCH → upload_local_file() → s3key
+4. `GMAIL_SEND_EMAIL` with `attachment: {name, mimetype: "image/png", s3key}`
+- GEMINI_API_KEY in ~/.zshrc
+
+## Cost Optimisation (2026-04-08)
+- Weekly spend Apr 1-7: NZ$217/week — 95% was Sonnet cache writes/reads
+- Changes made: cacheRetention→long for all models, heartbeat 30m→55m, bootstrapMaxChars 12000, trimmed MEMORY.md
+- Expected savings: ~NZ$50-80/week from reduced cache writes + fewer heartbeat cycles
+- Opus appearing in usage — investigate if fallback or accidental /model use
