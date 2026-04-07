@@ -72,7 +72,10 @@
         "id": "marketing-opps-lead-flo",
         "name": "Lead-Flo: Marketing Opps",
         "workspace": "/Users/clawbot/.openclaw/workspace-marketing-opps",
-        "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent"
+        "agentDir": "/Users/clawbot/.openclaw/agents/marketing-opps-lead-flo/agent",
+        "model": {
+          "primary": "google/gemini-2.0-flash"
+        }
       },
       {
         "id": "pestx",
@@ -84,13 +87,34 @@
         "id": "pestaside",
         "name": "Pestaside",
         "workspace": "/Users/clawbot/.openclaw/workspace-pestaside",
-        "agentDir": "/Users/clawbot/.openclaw/agents/pestaside/agent"
+        "agentDir": "/Users/clawbot/.openclaw/agents/pestaside/agent",
+        "model": {
+          "primary": "anthropic/claude-haiku-3-5"
+        }
       },
       {
         "id": "agent-builder",
         "name": "Agent Builder",
         "workspace": "/Users/clawbot/.openclaw/workspace-agent-builder",
         "agentDir": "/Users/clawbot/.openclaw/agents/agent-builder/agent"
+      },
+      {
+        "id": "psyche-research",
+        "name": "Psyche Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-psyche-research",
+        "agentDir": "/Users/clawbot/.openclaw/agents/psyche-research/agent",
+        "model": {
+          "primary": "anthropic/claude-haiku-3-5"
+        }
+      },
+      {
+        "id": "business-research",
+        "name": "Business Research",
+        "workspace": "/Users/clawbot/.openclaw/workspace-business-research",
+        "agentDir": "/Users/clawbot/.openclaw/agents/business-research/agent",
+        "model": {
+          "primary": "anthropic/claude-haiku-3-5"
+        }
       }
     ]
   },
@@ -187,6 +211,26 @@
         "peer": {
           "kind": "channel",
           "id": "1490801706261282967"
+        }
+      }
+    },
+    {
+      "agentId": "psyche-research",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490913485155074189"
+        }
+      }
+    },
+    {
+      "agentId": "business-research",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1490913540897505432"
         }
       }
     }
