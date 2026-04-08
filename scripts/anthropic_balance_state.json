@@ -1,7 +1,7 @@
 {
   "starting_balance": 35.0,
   "total_spend": 1.5,
-  "last_check": "2026-04-08T06:00:03.307754+00:00",
+  "last_check": "2026-04-08T21:00:03.011451+00:00",
   "alert_sent": false,
-  "check_count": 7
+  "check_count": 8
 }

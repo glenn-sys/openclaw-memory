@@ -96,7 +96,10 @@
         "id": "agent-builder",
         "name": "Agent Builder",
         "workspace": "/Users/clawbot/.openclaw/workspace-agent-builder",
-        "agentDir": "/Users/clawbot/.openclaw/agents/agent-builder/agent"
+        "agentDir": "/Users/clawbot/.openclaw/agents/agent-builder/agent",
+        "model": {
+          "primary": "anthropic/claude-haiku-4-5"
+        }
       },
       {
         "id": "psyche-research",
