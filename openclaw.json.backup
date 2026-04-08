@@ -71,7 +71,7 @@
         "name": "Main",
         "workspace": "/Users/clawbot/.openclaw/workspace",
         "model": {
-          "primary": "anthropic/claude-sonnet-4-6"
+          "primary": "anthropic/claude-haiku-4-5"
         }
       },
       {
